@@ -14,9 +14,23 @@ $(function () {
 
 
 });
+var sRSS
+var change_img = $('.img_thd').css("width")
+
+var cursor_padding
+var obj_padding 
 
 
-var spcial_move = ''
+var src_thd = 'img/a1000.svg'
+var src_fiftyhun =  'img/a500.svg'
+var src_hun = 'img/a100.svg'
+var src_fifty =  'img/a50.svg'
+var src_ten = 'img/a10.svg'
+var src_five =  'img/a5.svg'
+var src_one =  'img/a1.svg'
+
+
+
 
 
 function convertSizeALL(className) {
@@ -25,47 +39,116 @@ function convertSizeALL(className) {
     var iw = $(window).innerWidth(), ih = $(window).innerHeight();
     var pRatio = window.devicePixelRatio || 0, xRatio = iw / w, yRatio = ih / h, sRatio = 1;
     sRatio = Math.min(xRatio, yRatio);
-    $(className).css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
-    $(".outside-frame").css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
+    sRSS = sRatio
+    $('.background-img').css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
+    $(".background1").css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
+    $(".background").css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
+    $(".showbox").css({ width: Math.round(1480 * sRatio), height: Math.round(697 * sRatio) });
+    $('.changeMoneyAreaTop').css({ width: Math.round(359 * sRatio), height: Math.round(31 * sRatio) });
+    $('.changeMoneyAreaBottom').css({ width: Math.round(359 * sRatio), height: Math.round(379 * sRatio) });
+    $('.change_btn').css({ width: Math.round(352 * sRatio), height: Math.round(65 * sRatio) });
+    $('.close_btn').css({ width: Math.round(76 * sRatio), height: Math.round(77 * sRatio) });
+    $('.useteach').css({ width: Math.round(263 * sRatio), height: Math.round(78 * sRatio) });
+    $('.countpic').css({ width: Math.round(285 * sRatio), height: Math.round(154 * sRatio) });
+    $('.delete_btn').css({ width: Math.round(65 * sRatio), height: Math.round(64 * sRatio) });
+    $('.inputarea').css({ width: Math.round(159 * sRatio), height: Math.round(79 * sRatio) });
+    $('.arrow').css({ width: Math.round(19 * sRatio), height: Math.round(13 * sRatio) });
+    $('.choosenum').css({ width: Math.round(149 * sRatio), height: Math.round(565 * sRatio) });
+    $('.img_thd').css({ width: Math.round(167 * sRatio), height: Math.round(73 * sRatio) });
+    $('.img_fivehun').css({ width: Math.round(167 * sRatio), height: Math.round(73 * sRatio) });
+    $('.img_hun').css({ width: Math.round(149* sRatio), height: Math.round(72 * sRatio) });
+    $('.img_fifty').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
 
-    var reW = 1.92771084337349
-    var reH = 1.31964809384164
-    $("body").css("margin-left", (iw - Math.round(w * sRatio)) / 2);
-    spcial_move  = (iw - Math.round(w * sRatio)) / 2
-    $(".box").css({ width: Math.round(270 * sRatio), height: Math.round(680 * sRatio) });
-    // $('canvas').css({ width: Math.round(1620  * sRatio), height: Math.round(700* sRatio) });
-    $('.carousel-item img').css({ width: Math.round(295 * sRatio), height: Math.round(138 * sRatio) });
-    $(".ans_hv,.ans2_hv,.ans3_hv").css({ width: Math.round(89.5 * sRatio), height: Math.round(44 * sRatio) });
-    $(".clear_frame").css({ width: Math.round(300 * sRatio), height: Math.round(170 * sRatio) });
-    $('.input_1').css({ width: Math.round(200 * sRatio), height: Math.round(165 * sRatio), fontSize: Math.round(50 * sRatio) });
-    $('.btn_1').css({ width: Math.round(90 * sRatio), height: Math.round(160 * sRatio) });
-    $('.btn_1 img').css({ width: Math.round(40 * sRatio), height: Math.round(50 * sRatio) });
-    $("#imgset").css({ width: Math.round(1920 * sRatio), height: Math.round(195 * sRatio) });
-    $('.imgbox img').css({ width: Math.round(100 * sRatio), height: Math.round(100 * sRatio) });
-    $('.imgbox ').css({ width: Math.round(100 * sRatio), height: Math.round(200 * sRatio), marginRight: Math.round(80 * sRatio) });
-    $('.es-input').css({ width: Math.round(120 * sRatio), height: Math.round(30 * sRatio) });
-    $('.change_frame').css({ width: Math.round(340 * sRatio), height: Math.round(200 * sRatio) });
-    $('.btn_3,.btn_4,.btn_5').css({ width: Math.round(170 * sRatio), height: Math.round(60 * sRatio), fontSize: Math.round(15 * sRatio) });
-    $('.btn_6').css({ width: Math.round(60 * sRatio), height: Math.round(60 * sRatio) });
-    $("#background_canvas").css({ width: Math.round(1570 * sRatio), height: Math.round(678 * sRatio) });
-    $('.info_change').css({fontSize: Math.round(60 * sRatio)})
-    $('.info_delete').css({fontSize: Math.round(60 * sRatio)})
-    $('.picker').css({width: Math.round(300 * sRatio), height: Math.round(220 * sRatio)})
-    $('.outside-frame').css({paddingLeft: Math.round(20 * sRatio),paddingTop: Math.round(20 * sRatio)})
+    $('.img_ten').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
+    $('.img_five').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
+
+    $('.img_one').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
+
+    $('.realmoneyarea').css({ width: Math.round(265 * sRatio), height: Math.round(59 * sRatio) });
+    $('.realmoney').css({ width: Math.round(133 * sRatio), height: Math.round(53 * sRatio) });
+
+    $('.numberframe').css({ width: Math.round(125 * sRatio), borderRadius: Math.round(5 * sRatio) });
+
+
+    $('.numlist').css({height: Math.round(54.2 * sRatio),fontSize:Math.round(35 * sRatio)})
+    $('.dragselected').css({ width: Math.round(355 * sRatio), height: Math.round(200 * sRatio) });
+    $('.selectedframe').css({ width: Math.round(330 * sRatio), height: Math.round(185 * sRatio), borderRadius: Math.round(15 * sRatio) , boxShadow: `0px ${Math.round(30 * sRatio)}px ${Math.round(30 * sRatio)}px inset rgba(34, 34, 34, 0.452),0px ${-Math.round(30 * sRatio)}px ${Math.round(30 * sRatio)}px inset rgba(34, 34, 34, 0.466) ` });
+    $('.box').css({ width: Math.round(330 * sRatio), height: Math.round(185 * sRatio), borderRadius: Math.round(15 * sRatio) })
+    $('.img_box').css({ width: Math.round(330 * sRatio), height: Math.round(185 * sRatio),  backgroundPosition: `0 ${Math.round(378 * sRatio)}px`,backgroundSize:`${Math.round(330 * sRatio)}px ${Math.round(812 * sRatio)}px`})
+    $('.movetopbtn').css({ width: Math.round(56 * sRatio), height: Math.round(39 * sRatio) });
+    $('.movedownbtn').css({ width: Math.round(56 * sRatio), height: Math.round(39 * sRatio) });
+    $('.enter_input').css({ width: Math.round(70 * sRatio), height: Math.round(30 * sRatio), fontSize: Math.round(30 * sRatio) })
+    $('.count').css({ width: Math.round(180 * sRatio), height: Math.round(100 * sRatio), fontSize: Math.round(55 * sRatio) })
+    $('.mask').css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
+    $('.info').css({ width: Math.round(755*0.89 * sRatio), height: Math.round(510*0.89 * sRatio) });
+    $('.btn_close_inset').css({ width: Math.round(53 * sRatio), height: Math.round(53 * sRatio) });
+    canvas.setHeight(655 * sRatio);
+    canvas.setWidth(1815 * sRatio);
+    $('.canvas-container').css({ borderRadius: Math.round(20 * sRatio) })
+    canvas.discardActiveObject();
+
+    stagenum = 0
+
+    var nowW =  $('.img_thd').css('width')
+    console.log(nowW)
+    console.log(change_img)
+  
+    var countscale =  parseInt(nowW)/ parseInt(change_img) 
+      var objse = canvas.getObjects()
+      objse.forEach((obj) => {
+        
+  
+          obj.scaleX = obj.scaleX * countscale
+  
+          obj.scaleY = obj.scaleY * countscale
+          obj.left = obj.left * countscale
+          obj.top = obj.top *countscale
+          obj.setCoords()
+          // obj.width=  obj._element.naturalWidth* scalenow
+          // obj.height=  obj._element.naturalHeigh* scalenow
+  
+  
+      });
+      change_img =nowW   
+  
+  
+  
+  
+  
+  
+  
+      fabric.Object.prototype.customiseCornerIcons({
+          settings: {
+              borderColor: 'black',
+              cornerSize: Math.round(40 * sRatio),
+              cornerShape: 'circle',
+              cornerBackgroundColor: 'rgba(0,0,0,0)',
+              cornerPadding: 0
+          },
+  
+          tr: {
+  
+              icon: 'img/tX.png',
+          },
+      
+      }, function () {
+          canvas.renderAll()
+      })
+  
+      fabric.Object.prototype.set({
+          padding: Math.round(10 * sRatio)
+      })
+      fabric.Object.prototype.set({
+          borderColor: '#0094dd',
+          lockScalingFlip: true
+      })
+
+
+      cursor_padding = Math.round(40 * sRatio)
+      obj_padding = Math.round(10 * sRatio)
+  
+
+
+
+
 }
-
-var height_img
-var width_img
-
-$(window).resize(function () {
-    location.reload()
-
-
-})
-setTimeout(function () {
-    height_img = $("#defaultImg").css('height')
-    width_img = $("#defaultImg").css('width')
-    console.log(height_img)
-    console.log(width_img)
-}, 500)
-    
