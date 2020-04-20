@@ -77,8 +77,11 @@ $('.realmoneyarea').click(function () {
         })
         $(".realmoney").css({
             left: "86.56%",
-            background: "url(img/btB1.svg)",
-            backgroundSize: "cover"
+
+        })
+        $('.realpic').css({
+            backgroundPosition: "0 -53px"
+
         })
         var objse = canvas.getObjects()
         objse.forEach((obj) => {
@@ -119,11 +122,14 @@ $('.realmoneyarea').click(function () {
         })
         $(".realmoney").css({
             left: "80.3%",
-            background: "url(img/btA1.svg)",
-            backgroundSize: "cover"
+
 
         })
+        $('.realpic').css({
+            backgroundPosition: "0 0px"
 
+
+        })
         var objse = canvas.getObjects()
         objse.forEach((obj) => {
             var whatisthis = obj._element.alt

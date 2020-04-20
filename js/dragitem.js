@@ -297,7 +297,7 @@ toucharea.addEventListener("touchend", function(e) {
      
             var bgP = $('.img_box').css('backgroundSize')
             var jj = bgP.slice(5, 15)
-            stagenum = parseInt(jj) / 7 + stagenum
+            stagenum = stagenum - parseInt(jj) / 7
         
             // //當滑輪向上滾動時 
             $('.img_box').css({
@@ -308,7 +308,7 @@ toucharea.addEventListener("touchend", function(e) {
         case 2:
             var bgP = $('.img_box').css('backgroundSize')
             var jj = bgP.slice(5, 15)
-            stagenum = stagenum - parseInt(jj) / 7
+            stagenum = parseInt(jj) / 7 + stagenum
         
             $('.img_box').css({
                 backgroundPosition: `0 ${Math.round(378 * sRSS) + stagenum}px`

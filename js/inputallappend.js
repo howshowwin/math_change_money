@@ -526,7 +526,7 @@ function idontknowwhatiwrite() {
                 s_1 += 10
 
 
-                image.animate('top', Math.round(30 * sRSS) + (maxTOP * tencount) + Math.round(110 * sRSS) * numnum4, {
+                image.animate('top', Math.round(35 * sRSS) + (maxTOP * tencount) + Math.round(110 * sRSS) * numnum4, {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -542,7 +542,7 @@ function idontknowwhatiwrite() {
                 s_1_1 += 10
 
 
-                image.animate('top', Math.round(30 * sRSS) + (maxTOP * tencount) + Math.round(110 * sRSS) * (numnum4 - 5), {
+                image.animate('top', Math.round(35 * sRSS) + (maxTOP * tencount) + Math.round(110 * sRSS) * (numnum4 - 5), {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -628,7 +628,7 @@ function idontknowwhatiwrite() {
                 s_1 += 10
 
 
-                image.animate('top', Math.round(30 * sRSS) + (maxTOP * fivecount) + Math.round(110 * sRSS) * numnum5, {
+                image.animate('top', Math.round(40 * sRSS) + (maxTOP * fivecount) + Math.round(110 * sRSS) * numnum5, {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -644,7 +644,7 @@ function idontknowwhatiwrite() {
                 s_1_1 += 10
 
 
-                image.animate('top', Math.round(30 * sRSS) + (maxTOP * fivecount) + Math.round(110 * sRSS) * (numnum5 - 5), {
+                image.animate('top', Math.round(40 * sRSS) + (maxTOP * fivecount) + Math.round(110 * sRSS) * (numnum5 - 5), {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -732,7 +732,7 @@ function idontknowwhatiwrite() {
                 s_1 += 10
 
 
-                image.animate('top', Math.round(30 * sRSS) + (maxTOP * onecount) + Math.round(110 * sRSS) * numnum6, {
+                image.animate('top', Math.round(45 * sRSS) + (maxTOP * onecount) + Math.round(110 * sRSS) * numnum6, {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -748,7 +748,7 @@ function idontknowwhatiwrite() {
                 s_1_1 += 10
 
 
-                image.animate('top', Math.round(30 * sRSS) + (maxTOP * onecount) + Math.round(110 * sRSS) * (numnum6 - 5), {
+                image.animate('top', Math.round(45 * sRSS) + (maxTOP * onecount) + Math.round(110 * sRSS) * (numnum6 - 5), {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
