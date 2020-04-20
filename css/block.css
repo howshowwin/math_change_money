@@ -76,19 +76,27 @@ body {
     cursor: pointer;
 }
 .countpic{
-    background: url(../img/box3.svg);
+    background: url(../img/newbox3.png);
     background-size: cover;
     position: absolute;
-    top: 81.8%;
+    top: 80%;
     left: 64.8%;
 }
 .delete_btn{
-    background: url(../img/box4.svg);
+    background: url(../img/newbox4.png);
     background-size: cover;
     position: absolute;
-    top: 91%;
+    top: 81%;
     cursor: pointer;
-    left: 75.9%;
+    left: 74.5%;
+}
+.toggleDisplayBtn{
+    background: url(../img/newbox3-1.png);
+    background-size: cover;
+    position: absolute;
+    top: 81%;
+    cursor: pointer;
+    left: 65.3%;
 }
 .inputarea{
     background: url(../img/box1.png);
@@ -352,8 +360,8 @@ body {
     background: none;
     outline: none;
     border: 0px;
-    text-align:right;
-    top: 84.0%;
+    text-align:center;
+    top: 86.0%;
     left: 67%;
     color: #666;
 

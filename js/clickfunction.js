@@ -96,13 +96,13 @@ $('.realmoneyarea').click(function () {
     }
     if (realmoneynow == 1) {
         stagenum = 0
-        src_thd = 'img/a1000.svg'
-        src_fiftyhun = 'img/a500.svg'
-        src_hun = 'img/a100.svg'
-        src_fifty = 'img/a50.svg'
-        src_ten = 'img/a10.svg'
-        src_five = 'img/a5.svg'
-        src_one = 'img/a1.svg'
+        src_thd = 'img/newa1000.svg'
+        src_fiftyhun = 'img/newa500.svg'
+        src_hun = 'img/newa100.svg'
+        src_fifty = 'img/newa50.svg'
+        src_ten = 'img/newa10.svg'
+        src_five = 'img/newa5.svg'
+        src_one = 'img/newa1.svg'
         $('.img_thd').attr('src', `${src_thd}`)
         $('.img_fivehun').attr('src', `${src_fiftyhun}`)
         $('.img_hun').attr('src', `${src_hun}`)
@@ -402,13 +402,32 @@ $('body').bind('click', function (event) {
         clickDisplayNoneOne = 0
     }
 });
+var togglecount = 0
 
 
+$('.toggleDisplayBtn').click(function () {
+    if (togglecount == 0) {
+        $('.count').removeClass('display_none')
+        $(this).css({
+            background: "url(img/newbox3-2.png)",
+            backgroundSize: "cover"
+        })
+        togglecount = 1
+    } else {
+        $('.count').addClass('display_none')
+        $(this).css({
+            background: "url(img/newbox3-1.png)",
+            backgroundSize: "cover"
+        })
+        togglecount = 0
+    }
+})
 
 $('.numlist').click(function () {
     let showClick = $(this).data("numval")
     let amount = $(this).closest(".choosenum").data("amount")
     $(`.enter_${amount}`).val(showClick == 10 ? "+10" : `+${showClick}`)
+    appendmoney()
 
 })
 function SumData(arr) {
@@ -424,6 +443,46 @@ $(".count").bind('input porpertychange', function () {
         $('.count').val(10999)
     }
 })
+var blurnow = 0
+$('.count').focus(function () {
+    $('.count').val("")
+    blurnow = 1
+})
+$('.count').blur(function (e) {
+    setTimeout(function(){
+        blurnow = 0
+    },200)
+    console.log(e)
+    if ($('.count').val() == "") {
+        setTimeout(function ww() {
+            var items = canvas.getObjects()
+            var Array_sum
+            var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
+
+            for (i = 0; i < items.length; i++) {
+                ArrTest[i] = parseInt(items[i]._element.alt)
+
+            }
+            Array_sum = SumData(ArrTest)
+            $(".count").val(Array_sum)
+        }, 500)
+    } else {
+        if(keydownblur==0){
+            canvas.clear();
+
+            idontknowwhatiwrite()
+            $('.enter_thd').val('')
+            $('.enter_hrd').val('')
+            $('.enter_ten').val('')
+            $('.enter_one').val('')
+
+        }else{
+            keydownblur =0
+        }
+       
+    }
+})
+
 $('.useteach').click(function () {
     $('.mask').removeClass("display_none")
 })
@@ -445,37 +504,51 @@ $(".enter_input").bind('input porpertychange', function () {
 
     }
 })
+
+var u = navigator.userAgent;
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+$('.enter_input').blur(function () {
+    
+    if (isAndroid||isiOS) {
+        appendmoney()
+    }
+})
 $('.useteach').click(function () {
 
 })
 $('.delete_btn').click(function () {
-    canvas.clear()
-    $('.count').val(0)
-    thdcount = -1
-    fiftyhuncount = -1
-    huncount = -1
-    fiftycount = -1
-    tencount = -1
-    fivecount = -1
-    onecount = -1
-    changeArray = []
-    change_Array_sum = 0
-
-
-    thdlittlemoveleft = 0
-    fiftyhunlittlemoveleft = 0
-    hunlittlemoveleft = 0
-    fiftylittlemoveleft = 0
-    tenlittlemoveleft = 0
-    fivelittlemoveleft = 0
-    onelittlemoveleft = 0
-    numnum = 0
-    numnum1 = 0
-    numnum2 = 0
-    numnum3 = 0
-    numnum4 = 0
-    numnum5 = 0
-    numnum6 = 0
+    if( blurnow==0){
+        canvas.clear()
+        $('.count').val(0)
+        thdcount = -1
+        fiftyhuncount = -1
+        huncount = -1
+        fiftycount = -1
+        tencount = -1
+        fivecount = -1
+        onecount = -1
+        changeArray = []
+        change_Array_sum = 0
+    
+    
+        thdlittlemoveleft = 0
+        fiftyhunlittlemoveleft = 0
+        hunlittlemoveleft = 0
+        fiftylittlemoveleft = 0
+        tenlittlemoveleft = 0
+        fivelittlemoveleft = 0
+        onelittlemoveleft = 0
+        numnum = 0
+        numnum1 = 0
+        numnum2 = 0
+        numnum3 = 0
+        numnum4 = 0
+        numnum5 = 0
+        numnum6 = 0
+    }
+    
 })
 
 $('.close_btn').click(function () {
@@ -496,10 +569,58 @@ fabric.Canvas.prototype.customiseControls({
     },
     tr: {
         action: function (e) {
-            // var activeObject = canvas.getActiveObject()
-            // if (activeObject) {
-            //         canvas.remove(activeObject);
-            // }
+            var ji = canvas.getActiveObject()
+            console.log(ji)
+            console.log(objseleted)
+            if (ji.cacheKey == objseleted) {
+                if (ji) {
+                    var index = changeArray.indexOf(ji);
+                    if (index > -1) {
+                        console.log(index)
+
+                        changeArray.splice(index, 1);
+                        var stage = new Array()
+                        for (i = 0; i < changeArray.length; i++) {
+                            stage.push(parseInt(changeArray[i]._element.alt))
+                        }
+
+                        change_Array_sum = SumData(stage)
+
+                    }
+                    canvas.remove(ji)
+                }
+            }
+            if (ji._objects) {
+                function getSelection() {
+
+                    return canvas.getActiveObject() == null ? canvas.getActiveGroup() : canvas.getActiveObject()
+                }
+
+                var o = getSelection();
+
+                o._objects.forEach(function (object, key) {
+                    var index = changeArray.indexOf(object);
+                    if (index > -1) {
+                        console.log(index)
+
+                        changeArray.splice(index, 1);
+                        var stage = new Array()
+                        for (i = 0; i < changeArray.length; i++) {
+                            stage.push(parseInt(changeArray[i]._element.alt))
+                        }
+
+                        change_Array_sum = SumData(stage)
+
+                    }
+                    canvas.remove(object);
+                });
+                canvas.discardActiveObject()
+
+            }
+
+
+
+            canvas.renderAll();
             setTimeout(function ww() {
                 var items = canvas.getObjects()
                 var Array_sum
@@ -512,60 +633,7 @@ fabric.Canvas.prototype.customiseControls({
                 Array_sum = SumData(ArrTest)
                 $(".count").val(Array_sum)
             }, 500)
-            // var index = changeArray.indexOf(objjj);
-            // if (index > -1) {
-            // } else {
-            //     changeArray.push(objjj)
-            // }
-            var ji = canvas.getActiveObject()
-            if (ji) {
-                var index = changeArray.indexOf(ji);
-                if (index > -1) {
-                    console.log(index)
 
-                    changeArray.splice(index, 1);
-                    var stage = new Array()
-                    for (i = 0; i < changeArray.length; i++) {
-                        stage.push(parseInt(changeArray[i]._element.alt))
-                    }
-
-                    change_Array_sum = SumData(stage)
-
-                }
-                canvas.remove(ji)
-            }
-
-            function getSelection() {
-
-                return canvas.getActiveObject() == null ? canvas.getActiveGroup() : canvas.getActiveObject()
-            }
-
-
-            var o = getSelection();
-            o._objects.forEach(function (object, key) {
-                var index = changeArray.indexOf(object);
-                if (index > -1) {
-                    console.log(index)
-
-                    changeArray.splice(index, 1);
-                    var stage = new Array()
-                    for (i = 0; i < changeArray.length; i++) {
-                        stage.push(parseInt(changeArray[i]._element.alt))
-                    }
-
-                    change_Array_sum = SumData(stage)
-
-                }
-                canvas.remove(object);
-            });
-
-            canvas.discardActiveObject()
-
-
-
-
-
-            canvas.renderAll();
 
 
 
@@ -575,14 +643,13 @@ fabric.Canvas.prototype.customiseControls({
         cursor: 'pointer'
     },
     bl: {
-        action: function () {
+        action: "rotate",
 
-        }
     },
     br: {
-        action: function () {
+        action: "scale",
 
-        }
+        cursor: 'pointer'
     },
     mb: {
         action: function () {
@@ -638,6 +705,131 @@ fabric.Canvas.prototype.cursorMap[5] = 'pointer'
 // fabric.Canvas.prototype.cursorMap[9] = 'pointer'
 // fabric.Canvas.prototype.cursorMap[1] = 'pointer'
 
+
+
+
+var objseleted
+
+canvas.on('selection:updated', function (e) {
+    setTimeout(function () {
+        objseleted = e.target.cacheKey
+        console.log(objseleted)
+    }, 120)
+
+});
+
+
+
+
+
+
+
+
+canvas.on('object:selected', e => {
+    if (e.target) {
+        console.log(e)
+        e.target.bringToFront()
+        setTimeout(function () {
+            objseleted = e.target.cacheKey
+            console.log(objseleted)
+        }, 120)
+    }
+
+
+    // canvas.moveTo(e.target, 0);
+})
+
+
+canvas.on('selection:cleared', e => {
+    objseleted = 0
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var left1 = 0;
+var top1 = 0;
+var scale1x = 0;
+var scale1y = 0;
+var width1 = 0;
+var height1 = 0;
+var angle = 0
+
+canvas.on('object:scaling', function (e) {
+    var obj = e.target;
+    // obj.set('strokeWidth', 50)
+
+    obj.setCoords();
+    var brNew = obj.getBoundingRect();
+
+    if (((brNew.width + brNew.left) >= obj.canvas.width - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
+        obj.left = left1;
+        obj.top = top1;
+        obj.scaleX = scale1x;
+        obj.scaleY = scale1y;
+        obj.width = width1;
+        obj.height = height1;
+    }
+    else {
+        left1 = obj.left;
+        top1 = obj.top;
+        scale1x = obj.scaleX;
+        scale1y = obj.scaleY;
+        width1 = obj.width;
+        height1 = obj.height;
+    }
+});
+canvas.on('object:rotating', function (e) {
+    var obj = e.target;
+    obj.setCoords();
+    var brNew = obj.getBoundingRect();
+
+    if (((brNew.width + brNew.left) >= obj.canvas.width - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
+        obj.left = left1;
+        obj.top = top1;
+        obj.scaleX = scale1x;
+        obj.scaleY = scale1y;
+        obj.width = width1;
+        obj.height = height1;
+        obj.angle = angle1;
+    }
+    else {
+        left1 = obj.left;
+        top1 = obj.top;
+        scale1x = obj.scaleX;
+        scale1y = obj.scaleY;
+        width1 = obj.width;
+        height1 = obj.height;
+        angle1 = obj.angle;
+
+    }
+});
+
+
+
+
+
+
+
+
 canvas.on('object:selected', e => {
     if (e.target) {
         e.target.bringToFront()
@@ -655,23 +847,25 @@ canvas.on('object:moving', function (e) {
     obj.setCoords();
     // top-left  corner
     if (obj.getBoundingRect().top || obj.getBoundingRect().left) {
-        obj.top = Math.max(obj.top, obj.top + (20 * sRSS) - obj.getBoundingRect().top);
-        obj.left = Math.max(obj.left, obj.left - obj.getBoundingRect().left);
+        obj.top = Math.max(obj.top, obj.top + (30 * sRSS) - obj.getBoundingRect().top);
+        obj.left = Math.max(obj.left, obj.left + (30 * sRSS) - obj.getBoundingRect().left);
     }
     // bot-right corner
-    if (obj.getBoundingRect().top + obj.getBoundingRect().height > obj.canvas.height || obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width) {
+    if (obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width) {
         obj.top = Math.min(obj.top, obj.canvas.height - obj.getBoundingRect().height + obj.top - obj.getBoundingRect().top);
-        obj.left = Math.min(obj.left, obj.canvas.width - (20 * sRSS) - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
+        obj.left = Math.min(obj.left, obj.canvas.width - (30 * sRSS) - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
     }
 
     if (obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width * 0.78 && obj.getBoundingRect().top + obj.getBoundingRect().height > obj.canvas.height * 0.65) {
-        obj.left = Math.min(obj.left, obj.canvas.width * 0.78 - (20 * sRSS) - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
+        obj.left = Math.min(obj.left, obj.canvas.width * 0.78 - (30 * sRSS) - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
 
     }
 
     if (obj.getBoundingRect().left > obj.canvas.width * 0.80 && obj.getBoundingRect().top + obj.getBoundingRect().height < obj.canvas.height * 0.65) {
 
     }
+
+
 
 
 
@@ -730,7 +924,22 @@ canvas.on('object:moving', function (e) {
 
 
 
-    if (e.e.clientY > $('.canvas-container').height() + $('.canvas-container').offset().top + 30 * sRSS) {
+  
+
+
+
+
+
+
+});
+
+var changeArray = new Array()
+var change_Array_sum = 0
+
+
+canvas.on('object:moved', function (e) {
+    var obj = e.target;
+    if (obj.getBoundingRect().top + obj.getBoundingRect().height  > $('.canvas-container').height()+ $('.canvas-container').offset().top ) {
 
         var obj = e.target;
         var obkkk = obj._objects ? obj._objects : e.target
@@ -750,20 +959,7 @@ canvas.on('object:moving', function (e) {
 
         }
 
-        // function getSelection() {
-
-        //     return canvas.getActiveObject() == null ? canvas.getActiveGroup() : canvas.getActiveObject()
-        // }
-
-        // var ko = new Array()
-        // var o = getSelection();
-
-        // o._objects.forEach(function (object, key) {
-        //     canvas.remove(object);
-        // });
-        // canvas.discardActiveObject()
-
-
+  
         canvas.renderAll();
 
         setTimeout(function ww() {
@@ -779,20 +975,6 @@ canvas.on('object:moving', function (e) {
             $(".count").val(Array_sum)
         }, 500)
     }
-
-
-
-
-
-
-
-});
-
-var changeArray = new Array()
-var change_Array_sum = 0
-
-
-canvas.on('object:moved', function (e) {
 
 
 })
@@ -887,7 +1069,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_one').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 + Math.random() * 250) * sRSS
+                        left: 1500 * sRSS
                     })
                     canvas.add(image)
 
@@ -903,6 +1085,12 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '1'
                     arr_one.push(image)
+                    const om = 300 
+
+                    var nowchange1 = om / arr_one.length
+                    for (i = 0; i < arr_one.length; i++) {
+                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                    }
 
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
@@ -1309,7 +1497,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_five').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 + Math.random() * 250) * sRSS
+                        left: (1500 ) * sRSS
                     })
                     canvas.add(image)
 
@@ -1325,7 +1513,12 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '5'
                     arr_one.push(image)
+                    const om = 300 
 
+                    var nowchange1 = om / arr_one.length
+                    for (i = 0; i < arr_one.length; i++) {
+                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                    }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
                     if (arr_one.length <= 5) {
@@ -1749,7 +1942,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_ten').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 + Math.random() * 250) * sRSS
+                        left: (1500) * sRSS
                     })
                     canvas.add(image)
 
@@ -1765,7 +1958,12 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '10'
                     arr_one.push(image)
+                    const om = 300 
 
+                    var nowchange1 = om / arr_one.length
+                    for (i = 0; i < arr_one.length; i++) {
+                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                    }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
                     if (arr_one.length <= 5) {
@@ -2190,7 +2388,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_fifty').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 + Math.random() * 250) * sRSS
+                        left: (1500 ) * sRSS
                     })
                     canvas.add(image)
 
@@ -2206,7 +2404,12 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '50'
                     arr_one.push(image)
+                    const om = 300 
 
+                    var nowchange1 = om / arr_one.length
+                    for (i = 0; i < arr_one.length; i++) {
+                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                    }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
                     if (arr_one.length <= 5) {
@@ -2643,7 +2846,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_hun').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 + Math.random() * 250) * sRSS
+                        left: (1500 ) * sRSS
                     })
                     canvas.add(image)
 
@@ -2659,7 +2862,12 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '100'
                     arr_one.push(image)
+                    const om = 150 
 
+                    var nowchange1 = om / arr_one.length
+                    for (i = 0; i < arr_one.length; i++) {
+                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                    }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
                     if (arr_one.length <= 5) {
@@ -3070,7 +3278,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_fivehun').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 + Math.random() * 250) * sRSS
+                        left: (1500 ) * sRSS
                     })
                     canvas.add(image)
 
@@ -3086,7 +3294,12 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '500'
                     arr_one.push(image)
+                    const om = 150
 
+                    var nowchange1 = om / arr_one.length
+                    for (i = 0; i < arr_one.length; i++) {
+                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                    }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
                     if (arr_one.length <= 5) {
@@ -3500,7 +3713,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_thd').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 + Math.random() * 250) * sRSS
+                        left: (1500) * sRSS
                     })
                     canvas.add(image)
 
@@ -3516,7 +3729,12 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '1000'
                     arr_one.push(image)
+                    const om = 150
 
+                    var nowchange1 = om / arr_one.length
+                    for (i = 0; i < arr_one.length; i++) {
+                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                    }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
                     if (arr_one.length <= 5) {

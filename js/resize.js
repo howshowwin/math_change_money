@@ -21,13 +21,13 @@ var cursor_padding
 var obj_padding 
 
 
-var src_thd = 'img/a1000.svg'
-var src_fiftyhun =  'img/a500.svg'
-var src_hun = 'img/a100.svg'
-var src_fifty =  'img/a50.svg'
-var src_ten = 'img/a10.svg'
-var src_five =  'img/a5.svg'
-var src_one =  'img/a1.svg'
+var src_thd = 'img/newa1000.svg'
+var src_fiftyhun =  'img/newa500.svg'
+var src_hun = 'img/newa100.svg'
+var src_fifty =  'img/newa50.svg'
+var src_ten = 'img/newa10.svg'
+var src_five =  'img/newa5.svg'
+var src_one =  'img/newa1.svg'
 
 
 
@@ -49,8 +49,11 @@ function convertSizeALL(className) {
     $('.change_btn').css({ width: Math.round(352 * sRatio), height: Math.round(65 * sRatio) });
     $('.close_btn').css({ width: Math.round(76 * sRatio), height: Math.round(77 * sRatio) });
     $('.useteach').css({ width: Math.round(263 * sRatio), height: Math.round(78 * sRatio) });
-    $('.countpic').css({ width: Math.round(285 * sRatio), height: Math.round(154 * sRatio) });
-    $('.delete_btn').css({ width: Math.round(65 * sRatio), height: Math.round(64 * sRatio) });
+    $('.countpic').css({ width: Math.round(262 * sRatio), height: Math.round(163 * sRatio) });
+    $('.delete_btn').css({ width: Math.round(65 * sRatio), height: Math.round(52 * sRatio) });
+    $('.toggleDisplayBtn').css({ width: Math.round(175 * sRatio), height: Math.round(52 * sRatio) });
+
+
     $('.inputarea').css({ width: Math.round(159 * sRatio), height: Math.round(79 * sRatio) });
     $('.arrow').css({ width: Math.round(19 * sRatio), height: Math.round(13 * sRatio) });
     $('.choosenum').css({ width: Math.round(149 * sRatio), height: Math.round(565 * sRatio) });
@@ -59,7 +62,7 @@ function convertSizeALL(className) {
     $('.img_hun').css({ width: Math.round(149* sRatio), height: Math.round(72 * sRatio) });
     $('.img_fifty').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
 
-    $('.img_ten').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
+    $('.img_ten').css({ width: Math.round(77 * sRatio), height: Math.round(77 * sRatio) });
     $('.img_five').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
 
     $('.img_one').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
@@ -127,10 +130,21 @@ function convertSizeALL(className) {
           },
   
           tr: {
-  
-              icon: 'img/tX.png',
-          },
-      
+
+            icon: 'img/tX.svg',
+        },
+        bl: {
+            icon: 'img/tR.svg',
+
+        },
+        br: {
+            settings: {
+                borderColor: '#0094dd',
+
+                cornerShape: 'circle',
+            },
+            icon: 'img/tB.svg'
+        },
       }, function () {
           canvas.renderAll()
       })

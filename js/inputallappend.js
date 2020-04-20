@@ -118,7 +118,7 @@ function idontknowwhatiwrite() {
                 scaleY: parseInt($('.img_thd').height()) / e.target.naturalHeight,
 
                 top: 650 * sRSS,
-                left: 60 * sRSS
+                left: 0 * sRSS
             })
             canvas.add(image)
 
@@ -165,7 +165,7 @@ function idontknowwhatiwrite() {
 
                     easing: fabric.util.ease.easeInOutExpo
                 })
-                image.animate('left', (80 * sRSS) + (maxWidthRed * thdcount) + (thdlittlemove * sRSS), {
+                image.animate('left', (50 * sRSS) + (maxWidthRed * thdcount) + (thdlittlemove * sRSS), {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -212,7 +212,7 @@ function idontknowwhatiwrite() {
                 scaleY: $('.img_fivehun').height() / e.target.naturalHeight,
 
                 top: Math.round(650 * sRSS),
-                left: Math.round(200 * sRSS)
+                left: Math.round(150 * sRSS)
             })
             canvas.add(image)
 
@@ -243,7 +243,7 @@ function idontknowwhatiwrite() {
 
                     easing: fabric.util.ease.easeInOutExpo
                 })
-                image.animate('left', (Math.round(142 * sRSS)) + (Math.round(10 * sRSS)) + (maxWidthblue * fiftyhuncount) + (Math.round(fiftyhunlittlemove * sRSS)), {
+                image.animate('left', (Math.round(172 * sRSS)) + (Math.round(10 * sRSS)) + (maxWidthblue * fiftyhuncount) + (Math.round(fiftyhunlittlemove * sRSS)), {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -259,7 +259,7 @@ function idontknowwhatiwrite() {
 
                     easing: fabric.util.ease.easeInOutExpo
                 })
-                image.animate('left', (Math.round(208 * sRSS)) + (Math.round(10 * sRSS)) + (maxWidthblue * fiftyhuncount) + (Math.round(fiftyhunlittlemove * sRSS)), {
+                image.animate('left', (Math.round(238 * sRSS)) + (Math.round(10 * sRSS)) + (maxWidthblue * fiftyhuncount) + (Math.round(fiftyhunlittlemove * sRSS)), {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -310,7 +310,7 @@ function idontknowwhatiwrite() {
                 scaleY: parseInt($('.img_hun').height()) / e.target.naturalHeight,
 
                 top: Math.round(650 * sRSS),
-                left: Math.round(360 * sRSS)
+                left: Math.round(320 * sRSS)
             })
             canvas.add(image)
 
@@ -341,7 +341,7 @@ function idontknowwhatiwrite() {
 
                     easing: fabric.util.ease.easeInOutExpo
                 })
-                image.animate('left', (Math.round(310 * sRSS)) + (Math.round(20 * sRSS)) + (maxWidthyellow * huncount) + (Math.round(hunlittlemove * sRSS)), {
+                image.animate('left', (Math.round(335 * sRSS)) + (Math.round(20 * sRSS)) + (maxWidthyellow * huncount) + (Math.round(hunlittlemove * sRSS)), {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -357,7 +357,7 @@ function idontknowwhatiwrite() {
 
                     easing: fabric.util.ease.easeInOutExpo
                 })
-                image.animate('left', (Math.round(380 * sRSS)) + (Math.round(20 * sRSS)) + (maxWidthyellow * huncount) + (Math.round(hunlittlemove * sRSS)), {
+                image.animate('left', (Math.round(375 * sRSS)) + (Math.round(20 * sRSS)) + (maxWidthyellow * huncount) + (Math.round(hunlittlemove * sRSS)), {
                     duration: 800 + s_1,
                     onChange: canvas.renderAll.bind(canvas),
 
@@ -406,7 +406,7 @@ function idontknowwhatiwrite() {
                 scaleY: parseInt($('.img_one').height()) / e.target.naturalHeight,
 
                 top: Math.round(650 * sRSS),
-                left: Math.round(550 * sRSS)
+                left: Math.round(530 * sRSS)
             })
             canvas.add(image)
 
@@ -501,7 +501,7 @@ function idontknowwhatiwrite() {
                 scaleY: parseInt($('.img_ten').height()) / e.target.naturalHeight,
 
                 top: Math.round(650 * sRSS),
-                left: Math.round(720 * sRSS)
+                left: Math.round(700 * sRSS)
             })
             canvas.add(image)
 
@@ -603,7 +603,7 @@ function idontknowwhatiwrite() {
                 scaleY: parseInt($('.img_five').height()) / e.target.naturalHeight,
 
                 top: Math.round(650 * sRSS),
-                left: Math.round(900 * sRSS)
+                left: Math.round(870 * sRSS)
             })
             canvas.add(image)
 
@@ -707,7 +707,7 @@ function idontknowwhatiwrite() {
                 scaleY: parseInt($('.img_one').height()) / e.target.naturalHeight,
 
                 top: Math.round(650 * sRSS),
-                left: Math.round(1050 * sRSS)
+                left: Math.round(1035 * sRSS)
             })
             canvas.add(image)
 

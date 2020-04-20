@@ -187,8 +187,8 @@ function dropImg(e) {
     if (oriTop - mix_padding < 0) {
         oriTop = mix_padding 
     }
-    if (oriLeft <0) {
-        oriLeft = 0
+    if (oriLeft - mix_padding <0) {
+        oriLeft =  mix_padding 
     }
     if (oriTop + movingImage.height > $('.canvas-container').height()) {
         oriTop = $('.canvas-container').height() - movingImage.height 
@@ -243,3 +243,82 @@ imgset.addEventListener('touchstart', saveFoneImg)
 imgset.addEventListener("touchmove", drag);
 imgset.addEventListener("touchend", pushimg);
 
+
+
+
+var toucharea =  document.querySelector(".box")
+
+
+var startx, starty;
+//獲得角度
+function getAngle(angx, angy) {
+    return Math.atan2(angy, angx) * 180 / Math.PI;
+};
+
+//根據起點終點返回方向 1向上 2向下 3向左 4向右 0未滑動
+function getDirection(startx, starty, endx, endy) {
+    var angx = endx - startx;
+    var angy = endy - starty;
+    var result = 0;
+
+    //如果滑動距離太短
+    if (Math.abs(angx) < 2 && Math.abs(angy) < 2) {
+        return result;
+    }
+
+    var angle = getAngle(angx, angy);
+    if (angle >= -135 && angle <= -45) {
+        result = 1;
+    } else if (angle > 45 && angle < 135) {
+        result = 2;
+    } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+        result = 3;
+    } else if (angle >= -45 && angle <= 45) {
+        result = 4;
+    }
+
+    return result;
+}
+//手指接觸螢幕
+toucharea.addEventListener("touchstart", function(e) {
+    startx = e.touches[0].pageX;
+    starty = e.touches[0].pageY;
+}, false);
+//手指離開螢幕
+toucharea.addEventListener("touchend", function(e) {
+    var endx, endy;
+    endx = e.changedTouches[0].pageX;
+    endy = e.changedTouches[0].pageY;
+    var direction = getDirection(startx, starty, endx, endy);
+    switch (direction) {
+        case 0:
+            break;
+        case 1:
+     
+            var bgP = $('.img_box').css('backgroundSize')
+            var jj = bgP.slice(5, 15)
+            stagenum = parseInt(jj) / 7 + stagenum
+        
+            // //當滑輪向上滾動時 
+            $('.img_box').css({
+                backgroundPosition: `0 ${Math.round(378 * sRSS) + stagenum}px`
+            })
+
+            break;
+        case 2:
+            var bgP = $('.img_box').css('backgroundSize')
+            var jj = bgP.slice(5, 15)
+            stagenum = stagenum - parseInt(jj) / 7
+        
+            $('.img_box').css({
+                backgroundPosition: `0 ${Math.round(378 * sRSS) + stagenum}px`
+            })
+
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        default:
+    }
+}, false);
