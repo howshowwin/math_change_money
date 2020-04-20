@@ -80,7 +80,7 @@ $('.realmoneyarea').click(function () {
 
         })
         $('.realpic').css({
-            backgroundPosition: "0 -53px"
+            backgroundPosition: `0 -${Math.round(53 * sRSS)}px`
 
         })
         var objse = canvas.getObjects()
@@ -95,9 +95,9 @@ $('.realmoneyarea').click(function () {
         });
 
         canvas.renderAll()
-
+        realmoneynow = 1
     }
-    if (realmoneynow == 1) {
+    else if (realmoneynow == 1) {
         stagenum = 0
         src_thd = 'img/newa1000.svg'
         src_fiftyhun = 'img/newa500.svg'
@@ -141,16 +141,12 @@ $('.realmoneyarea').click(function () {
                 });
 
         });
-
-
-
-
-    }
-    if (realmoneynow == 0) {
-        realmoneynow = 1
-    } else {
         realmoneynow = 0
+
+
+
     }
+
 })
 
 $('.movetopbtn').click(function () {
@@ -455,9 +451,9 @@ $('.count').focus(function () {
     blurnow = 1
 })
 $('.count').blur(function (e) {
-    setTimeout(function(){
+    setTimeout(function () {
         blurnow = 0
-    },200)
+    }, 200)
     console.log(e)
     if ($('.count').val() == "") {
         setTimeout(function ww() {
@@ -473,7 +469,7 @@ $('.count').blur(function (e) {
             $(".count").val(Array_sum)
         }, 500)
     } else {
-        if(keydownblur==0){
+        if (keydownblur == 0) {
             canvas.clear();
 
             idontknowwhatiwrite()
@@ -482,10 +478,10 @@ $('.count').blur(function (e) {
             $('.enter_ten').val('')
             $('.enter_one').val('')
 
-        }else{
-            keydownblur =0
+        } else {
+            keydownblur = 0
         }
-       
+
     }
 })
 
@@ -516,8 +512,8 @@ var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终
 var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 
 $('.enter_input').blur(function () {
-    
-    if (isAndroid||isiOS) {
+
+    if (isAndroid || isiOS) {
         appendmoney()
     }
 })
@@ -525,7 +521,7 @@ $('.useteach').click(function () {
 
 })
 $('.delete_btn').click(function () {
-    if( blurnow==0){
+    if (blurnow == 0) {
         canvas.clear()
         $('.count').val(0)
         thdcount = -1
@@ -537,8 +533,8 @@ $('.delete_btn').click(function () {
         onecount = -1
         changeArray = []
         change_Array_sum = 0
-    
-    
+
+
         thdlittlemoveleft = 0
         fiftyhunlittlemoveleft = 0
         hunlittlemoveleft = 0
@@ -554,7 +550,7 @@ $('.delete_btn').click(function () {
         numnum5 = 0
         numnum6 = 0
     }
-    
+
 })
 
 $('.close_btn').click(function () {
@@ -923,7 +919,7 @@ canvas.on('object:moving', function (e) {
 
 
 
-  
+
 
 
 
@@ -938,7 +934,7 @@ var change_Array_sum = 0
 
 canvas.on('object:moved', function (e) {
     var obj = e.target;
-    if (obj.getBoundingRect().top + obj.getBoundingRect().height  > $('.canvas-container').height()+ $('.canvas-container').offset().top ) {
+    if (obj.getBoundingRect().top + obj.getBoundingRect().height > $('.canvas-container').height() + $('.canvas-container').offset().top) {
 
         var obj = e.target;
         var obkkk = obj._objects ? obj._objects : e.target
@@ -958,7 +954,7 @@ canvas.on('object:moved', function (e) {
 
         }
 
-  
+
         canvas.renderAll();
 
         setTimeout(function ww() {
@@ -1084,11 +1080,11 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '1'
                     arr_one.push(image)
-                    const om = 300 
+                    const om = 300
 
                     var nowchange1 = om / arr_one.length
                     for (i = 0; i < arr_one.length; i++) {
-                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                        arr_one[i].left = (1500 + i * nowchange1) * sRSS
                     }
 
                     var maxWidthRed = 265 * sRSS
@@ -1496,7 +1492,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_five').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 ) * sRSS
+                        left: (1500) * sRSS
                     })
                     canvas.add(image)
 
@@ -1512,11 +1508,11 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '5'
                     arr_one.push(image)
-                    const om = 300 
+                    const om = 300
 
                     var nowchange1 = om / arr_one.length
                     for (i = 0; i < arr_one.length; i++) {
-                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                        arr_one[i].left = (1500 + i * nowchange1) * sRSS
                     }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
@@ -1957,11 +1953,11 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '10'
                     arr_one.push(image)
-                    const om = 300 
+                    const om = 300
 
                     var nowchange1 = om / arr_one.length
                     for (i = 0; i < arr_one.length; i++) {
-                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                        arr_one[i].left = (1500 + i * nowchange1) * sRSS
                     }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
@@ -2387,7 +2383,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_fifty').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 ) * sRSS
+                        left: (1500) * sRSS
                     })
                     canvas.add(image)
 
@@ -2403,11 +2399,11 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '50'
                     arr_one.push(image)
-                    const om = 240 
+                    const om = 240
 
                     var nowchange1 = om / arr_one.length
                     for (i = 0; i < arr_one.length; i++) {
-                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                        arr_one[i].left = (1500 + i * nowchange1) * sRSS
                     }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
@@ -2845,7 +2841,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_hun').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 ) * sRSS
+                        left: (1500) * sRSS
                     })
                     canvas.add(image)
 
@@ -2861,11 +2857,11 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '100'
                     arr_one.push(image)
-                    const om = 150 
+                    const om = 150
 
                     var nowchange1 = om / arr_one.length
                     for (i = 0; i < arr_one.length; i++) {
-                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                        arr_one[i].left = (1500 + i * nowchange1) * sRSS
                     }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
@@ -3277,7 +3273,7 @@ $('.change_btn').click(function () {
                         scaleY: parseInt($('.img_fivehun').height()) / e.target.naturalHeight,
 
                         top: 20 * sRSS,
-                        left: (1500 ) * sRSS
+                        left: (1500) * sRSS
                     })
                     canvas.add(image)
 
@@ -3297,7 +3293,7 @@ $('.change_btn').click(function () {
 
                     var nowchange1 = om / arr_one.length
                     for (i = 0; i < arr_one.length; i++) {
-                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                        arr_one[i].left = (1500 + i * nowchange1) * sRSS
                     }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {
@@ -3732,7 +3728,7 @@ $('.change_btn').click(function () {
 
                     var nowchange1 = om / arr_one.length
                     for (i = 0; i < arr_one.length; i++) {
-                        arr_one[i].left = (1500 + i*nowchange1 ) * sRSS
+                        arr_one[i].left = (1500 + i * nowchange1) * sRSS
                     }
                     var maxWidthRed = 265 * sRSS
                     // for (i = 0; i < arr_one.length; i++) {

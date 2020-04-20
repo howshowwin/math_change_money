@@ -86,6 +86,17 @@ function convertSizeALL(className) {
     $('.mask').css({ width: Math.round(w * sRatio), height: Math.round(h * sRatio) });
     $('.info').css({ width: Math.round(755*0.89 * sRatio), height: Math.round(510*0.89 * sRatio) });
     $('.btn_close_inset').css({ width: Math.round(53 * sRatio), height: Math.round(53 * sRatio) });
+    if(realmoneynow==0){
+        $('.realpic').css({
+            backgroundPosition: `0 -${Math.round(53 * sRSS)}px`
+        })
+    }else if(realmoneynow==1){
+        $('.realpic').css({
+            backgroundPosition: "0 0px"
+        })
+    }
+    
+    
     canvas.setHeight(655 * sRatio);
     canvas.setWidth(1815 * sRatio);
     $('.canvas-container').css({ borderRadius: Math.round(20 * sRatio) })
