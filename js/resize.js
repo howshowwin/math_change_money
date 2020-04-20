@@ -57,15 +57,16 @@ function convertSizeALL(className) {
     $('.inputarea').css({ width: Math.round(159 * sRatio), height: Math.round(79 * sRatio) });
     $('.arrow').css({ width: Math.round(19 * sRatio), height: Math.round(13 * sRatio) });
     $('.choosenum').css({ width: Math.round(149 * sRatio), height: Math.round(565 * sRatio) });
+
     $('.img_thd').css({ width: Math.round(167 * sRatio), height: Math.round(73 * sRatio) });
     $('.img_fivehun').css({ width: Math.round(167 * sRatio), height: Math.round(73 * sRatio) });
     $('.img_hun').css({ width: Math.round(149* sRatio), height: Math.round(72 * sRatio) });
     $('.img_fifty').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
 
-    $('.img_ten').css({ width: Math.round(77 * sRatio), height: Math.round(77 * sRatio) });
-    $('.img_five').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
+    $('.img_ten').css({ width: Math.round(70 * sRatio), height: Math.round(70 * sRatio) });
+    $('.img_five').css({ width: Math.round(60 * sRatio), height: Math.round(60 * sRatio) });
 
-    $('.img_one').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
+    $('.img_one').css({ width: Math.round(50 * sRatio), height: Math.round(50 * sRatio) });
 
     $('.realmoneyarea').css({ width: Math.round(265 * sRatio), height: Math.round(59 * sRatio) });
     $('.realmoney').css({ width: Math.round(133 * sRatio), height: Math.round(53 * sRatio) });

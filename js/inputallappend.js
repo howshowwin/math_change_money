@@ -402,8 +402,8 @@ function idontknowwhatiwrite() {
             const image = new fabric.Image(imgEl_1, {
                 width: e.target.naturalWidth,
                 height: e.target.naturalHeight,
-                scaleX: parseInt($('.img_one').width()) / e.target.naturalWidth,
-                scaleY: parseInt($('.img_one').height()) / e.target.naturalHeight,
+                scaleX: parseInt($('.img_fifty').width()) / e.target.naturalWidth,
+                scaleY: parseInt($('.img_fifty').height()) / e.target.naturalHeight,
 
                 top: Math.round(650 * sRSS),
                 left: Math.round(530 * sRSS)
@@ -591,7 +591,7 @@ function idontknowwhatiwrite() {
         // var w = 0 
         const imgEl_1 = document.createElement('img')
         imgEl_1.src = src_five
-        imgEl_1.alt = '50'
+        imgEl_1.alt = '5'
 
         imgEl_1.onload = (e) => {
 
@@ -617,7 +617,7 @@ function idontknowwhatiwrite() {
             canvas.renderAll();
 
 
-            image._element.alt = '50'
+            image._element.alt = '5'
             arr_six.push(image)
             numnum5++
             var maxWidthgreen = Math.round(20 * sRSS)

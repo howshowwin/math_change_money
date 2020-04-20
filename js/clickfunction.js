@@ -830,13 +830,6 @@ canvas.on('object:rotating', function (e) {
 
 
 
-canvas.on('object:selected', e => {
-    if (e.target) {
-        e.target.bringToFront()
-
-    }
-    // canvas.moveTo(e.target, 0);
-})
 
 canvas.on('object:moving', function (e) {
     var obj = e.target;
@@ -2404,7 +2397,7 @@ $('.change_btn').click(function () {
 
                     image._element.alt = '50'
                     arr_one.push(image)
-                    const om = 300 
+                    const om = 240 
 
                     var nowchange1 = om / arr_one.length
                     for (i = 0; i < arr_one.length; i++) {
