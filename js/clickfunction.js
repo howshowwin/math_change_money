@@ -97,11 +97,15 @@ $('.realmoneyarea').click(function () {
         })
         var objse = canvas.getObjects()
         objse.forEach((obj) => {
+            let scalenowX = obj.scaleX
+            let scalenowY = obj.scaleY
             console.log(obj)
             var whatisthis = obj._element.alt
             obj.setSrc(`img/b${whatisthis}.svg`,
                 function () {
                     obj._element.alt = whatisthis
+                    obj.scaleX = scalenowX
+                    obj.scaleY = scalenowY
                     canvas.renderAll();
                 });
 
