@@ -38,7 +38,8 @@ function saveImg(e) {
 }
 var jijo = ''
 function saveFoneImg(e) {
-
+    movingImage = ''
+    console.log(e)
     str_className = e.target.className
     str_className = str_className.substring(9, 19)
     console.log(str_className)
@@ -70,6 +71,7 @@ function saveFoneImg(e) {
     jijo = copyObj
     canvas.discardActiveObject();
     canvas.renderAll();
+
 }
 var odX
 var odY
@@ -88,110 +90,117 @@ var push = false
 var image_q = new Array()
 
 function pushimg(e) {
-    if (truemove == 1) {
-        console.log(movingImage.alt)
-        let alt = movingImage.alt
-        switch (alt) {
-            case "1":
-                arrayOne.pop()
-                change_Array_sum = change_Array_sum - 1
-                break;
-            case "5":
-                arrayfive.pop()
-                change_Array_sum = change_Array_sum - 5
-
-                break;
-            case "10":
-                arrayten.pop()
-                change_Array_sum = change_Array_sum - 10
-
-                break;
-            case "50":
-                arrayfifty.pop()
-                change_Array_sum = change_Array_sum - 50
-
-                break;
-            case "100":
-                arrayhun.pop()
-                change_Array_sum = change_Array_sum - 100
-
-                break;
-            case "500":
-                arrayfivehun.pop()
-                change_Array_sum = change_Array_sum - 500
-
-                break;
-            case "1000":
-                arrayths.pop()
-                change_Array_sum = change_Array_sum - 1000
-
-                break;
-
-            default:
-                break;
+       
+    
+        document.body.removeChild(jijo);
+    
+        var oriTop = e.changedTouches[0].clientY - e.target.height
+        var oriLeft = e.changedTouches[0].clientX - e.target.width
+    
+        var mix_padding = (obj_padding) + (cursor_padding / 2)
+    
+        let nowwha = 1
+    
+        if (oriTop - mix_padding < 0) {
+            oriTop = mix_padding
         }
-        truemove = 0
-    }
-    document.body.removeChild(jijo);
-
-    var oriTop = e.changedTouches[0].clientY - e.target.height
-    var oriLeft = e.changedTouches[0].clientX - e.target.width
-
-    var mix_padding = (obj_padding) + (cursor_padding / 2)
-
-
-
-    if (oriTop - mix_padding < 0) {
-        oriTop = mix_padding
-    }
-    if (oriLeft < 0) {
-        oriLeft = 0
-    }
-    if (oriTop + movingImage.height > $('.canvas-container').height()) {
-        oriTop = $('.canvas-container').height() - movingImage.height
-    }
-    if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
-        oriLeft = $('.canvas-container').width() * 0.788 - movingImage.width - mix_padding
-    }
-
-
-
-
-
-
-
-
-    const image_qq = new fabric.Image(movingImage, {
-        width: movingImage.naturalWidth,
-        height: movingImage.naturalHeight,
-        scaleX: movingImage.width / movingImage.naturalWidth,
-        scaleY: movingImage.height / movingImage.naturalHeight,
-        top: oriTop,
-        left: oriLeft,
-        lockScalingFlip: true
-    })
-
-
-    image_qq.set({
-        borderColor: '#01B0F1'
-    })
-
-    canvas.add(image_qq)
-
-    image_q.push(image_qq)
-    movingImage = ""
-    setTimeout(function ww() {
-        var items = canvas.getObjects()
-        var Array_sum
-        var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
-
-        for (i = 0; i < items.length; i++) {
-            ArrTest[i] = parseInt(items[i]._element.alt)
-
+        if (oriLeft < 0) {
+            oriLeft = 0
         }
-        Array_sum = SumData(ArrTest)
-        $(".count").val(Array_sum + change_Array_sum)
-    }, 500)
+        if (oriTop + movingImage.height > $('.canvas-container').height()) {
+            movingImage = ''
+        }
+        if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
+            movingImage = ''
+            nowwha = 0
+        }
+    
+
+        if (truemove == 1&&nowwha == 1) {
+            console.log(movingImage.alt)
+            let alt = movingImage.alt
+            switch (alt) {
+                case "1":
+                    arrayOne.pop()
+                    change_Array_sum = change_Array_sum - 1
+                    break;
+                case "5":
+                    arrayfive.pop()
+                    change_Array_sum = change_Array_sum - 5
+    
+                    break;
+                case "10":
+                    arrayten.pop()
+                    change_Array_sum = change_Array_sum - 10
+    
+                    break;
+                case "50":
+                    arrayfifty.pop()
+                    change_Array_sum = change_Array_sum - 50
+    
+                    break;
+                case "100":
+                    arrayhun.pop()
+                    change_Array_sum = change_Array_sum - 100
+    
+                    break;
+                case "500":
+                    arrayfivehun.pop()
+                    change_Array_sum = change_Array_sum - 500
+    
+                    break;
+                case "1000":
+                    arrayths.pop()
+                    change_Array_sum = change_Array_sum - 1000
+    
+                    break;
+    
+                default:
+                    break;
+            }
+            truemove = 0
+        }
+    
+    
+    
+    
+    
+    
+        const image_qq = new fabric.Image(movingImage, {
+            width: movingImage.naturalWidth,
+            height: movingImage.naturalHeight,
+            scaleX: movingImage.width / movingImage.naturalWidth,
+            scaleY: movingImage.height / movingImage.naturalHeight,
+            top: oriTop,
+            left: oriLeft,
+            lockScalingFlip: true
+        })
+    
+    
+        image_qq.set({
+            borderColor: '#01B0F1'
+        })
+        if(image_qq._element!=null){
+            canvas.add(image_qq)
+            image_q.push(image_qq)
+        }
+    
+        movingImage = ""
+        setTimeout(function ww() {
+    
+            var items = canvas.getObjects()
+            var Array_sum
+            var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
+            console.log(items)
+            for (i = 0; i < items.length; i++) {
+                ArrTest[i] = parseInt(items[i]._element.alt)
+    
+            }
+            Array_sum = SumData(ArrTest)
+            $(".count").val(Array_sum + change_Array_sum)
+        }, 500)
+    
+    
 
 
 }
