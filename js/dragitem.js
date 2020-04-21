@@ -37,9 +37,8 @@ function saveImg(e) {
 
 }
 var jijo = ''
-var startmove = 0
 function saveFoneImg(e) {
-    startmove  = 1 
+
     str_className = e.target.className
     str_className = str_className.substring(9, 19)
     console.log(str_className)
@@ -89,6 +88,7 @@ var push = false
 var image_q = new Array()
 
 function pushimg(e) {
+  
     document.body.removeChild(jijo);
 
     var oriTop = e.changedTouches[0].clientY - e.target.height
