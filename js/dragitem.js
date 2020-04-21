@@ -88,30 +88,7 @@ var push = false
 var image_q = new Array()
 
 function pushimg(e) {
-  
-    document.body.removeChild(jijo);
-
-    var oriTop = e.changedTouches[0].clientY - e.target.height
-    var oriLeft = e.changedTouches[0].clientX - e.target.width
-
-    var mix_padding = (obj_padding) + (cursor_padding / 2)
-
-
-    if (oriTop - mix_padding < 0) {
-        oriTop = mix_padding
-    }
-    if (oriLeft < 0) {
-        oriLeft = 0
-    }
-    if (oriTop + movingImage.height > $('.canvas-container').height()) {
-        movingImage = ""
-    }
-    if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
-        movingImage = ""
-    }
-
-
-    if (truemove == 1 ) {
+    if (truemove == 1) {
         console.log(movingImage.alt)
         let alt = movingImage.alt
         switch (alt) {
@@ -155,6 +132,29 @@ function pushimg(e) {
         }
         truemove = 0
     }
+    document.body.removeChild(jijo);
+
+    var oriTop = e.changedTouches[0].clientY - e.target.height
+    var oriLeft = e.changedTouches[0].clientX - e.target.width
+
+    var mix_padding = (obj_padding) + (cursor_padding / 2)
+
+
+
+    if (oriTop - mix_padding < 0) {
+        oriTop = mix_padding
+    }
+    if (oriLeft < 0) {
+        oriLeft = 0
+    }
+    if (oriTop + movingImage.height > $('.canvas-container').height()) {
+        oriTop = $('.canvas-container').height() - movingImage.height
+    }
+    if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
+        oriLeft = $('.canvas-container').width() * 0.788 - movingImage.width - mix_padding
+    }
+
+
 
 
 
@@ -190,7 +190,7 @@ function pushimg(e) {
 
         }
         Array_sum = SumData(ArrTest)
-        $(".count").val(Array_sum+ change_Array_sum)
+        $(".count").val(Array_sum + change_Array_sum)
     }, 500)
 
 
@@ -263,7 +263,7 @@ function dropImg(e) {
         oriLeft = mix_padding
     }
     if (oriTop + movingImage.height > $('.canvas-container').height()) {
-       break
+        oriTop = $('.canvas-container').height() - movingImage.height
     }
     if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
         oriLeft = $('.canvas-container').width() * 0.788 - movingImage.width - mix_padding
@@ -296,7 +296,7 @@ function dropImg(e) {
 
         }
         Array_sum = SumData(ArrTest)
-        $(".count").val(Array_sum+ change_Array_sum)
+        $(".count").val(Array_sum + change_Array_sum)
     }, 500)
 }
 
