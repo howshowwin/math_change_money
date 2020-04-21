@@ -68,6 +68,26 @@ function convertSizeALL(className) {
 
     $('.img_one').css({ width: Math.round(50 * sRatio), height: Math.round(50 * sRatio) });
 
+
+    $('.img_thd1').css({ width: Math.round(167 * sRatio), height: Math.round(73 * sRatio) });
+    $('.img_fiv1').css({ width: Math.round(167 * sRatio), height: Math.round(73 * sRatio) });
+    $('.img_hun1').css({ width: Math.round(149* sRatio), height: Math.round(72 * sRatio) });
+    $('.img_fif1').css({ width: Math.round(80 * sRatio), height: Math.round(80 * sRatio) });
+
+    $('.img_ten1').css({ width: Math.round(70 * sRatio), height: Math.round(70 * sRatio) });
+    $('.img_ive1').css({ width: Math.round(60 * sRatio), height: Math.round(60 * sRatio) });
+
+    $('.img_one1').css({ width: Math.round(50 * sRatio), height: Math.round(50 * sRatio) });
+
+$('.now_num').css({fontSize:Math.round(20 * sRatio)})
+
+
+
+
+
+
+
+
     $('.realmoneyarea').css({ width: Math.round(265 * sRatio), height: Math.round(59 * sRatio) });
     $('.realmoney').css({ width: Math.round(133 * sRatio), height: Math.round(53 * sRatio) });
 

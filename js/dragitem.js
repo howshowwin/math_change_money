@@ -14,9 +14,16 @@ let imgDragOffset = {
 
 var oldimgX = ''
 var oldimgY = ''
+var str_className = ''
+var truemove = 0
 
 function saveImg(e) {
-
+    str_className = e.target.className
+    str_className = str_className.substring(9, 19)
+    console.log(str_className)
+    if (str_className == "img_block2") {
+        truemove = 1
+    }
     if (e.target.tagName.toLowerCase() === 'img') {
         movingSrc = e.target.src
         imgDragOffset.offsetX = e.clientX - e.target.offsetLeft
@@ -32,6 +39,12 @@ function saveImg(e) {
 var jijo = ''
 function saveFoneImg(e) {
 
+    str_className = e.target.className
+    str_className = str_className.substring(9, 19)
+    console.log(str_className)
+    if (str_className == "img_block2") {
+        truemove = 1
+    }
 
     if (e.target.tagName.toLowerCase() === 'img') {
 
@@ -46,14 +59,14 @@ function saveFoneImg(e) {
     document.body.appendChild(copyObj);
 
     copyObj.style.position = "absolute"
-    copyObj.style.top = e.target.y + "px"
-    copyObj.style.left = e.target.x + "px"
+    // copyObj.style.top = e.target.y + "px"
+    // copyObj.style.left = e.target.x + "px"
     copyObj.style.zIndex = "9999"
     copyObj.style.opacity = "0.6"
 
 
     copyObj.style.top = e.targetTouches[0].clientY - e.target.height / 2 + "px"
-    copyObj.style.left = e.targetTouches[0].clientX - e.target.width / 2  + "px"
+    copyObj.style.left = e.targetTouches[0].clientX - e.target.width / 2 + "px"
     jijo = copyObj
     canvas.discardActiveObject();
     canvas.renderAll();
@@ -66,7 +79,7 @@ function drag(e) {
     e.preventDefault();
 
     jijo.style.top = e.targetTouches[0].clientY - e.target.height / 2 + "px"
-    jijo.style.left = e.targetTouches[0].clientX - e.target.width / 2  + "px"
+    jijo.style.left = e.targetTouches[0].clientX - e.target.width / 2 + "px"
 
     odX = e.targetTouches[0].clientX - e.target.width / 2
     odY = e.targetTouches[0].clientY - e.target.height / 2
@@ -75,54 +88,70 @@ var push = false
 var image_q = new Array()
 
 function pushimg(e) {
-    // let yoyo = $('.canvas-container').offset().left
-    // let yoyot = $('.canvas-container').offset().top
+    if (truemove == 1) {
+        console.log(movingImage.alt)
+        let alt = movingImage.alt
+        switch (alt) {
+            case "1":
+                arrayOne.pop()
+                change_Array_sum = change_Array_sum - 1
+                break;
+            case "5":
+                arrayfive.pop()
+                change_Array_sum = change_Array_sum - 5
 
-    // let offsetY = odY
-    // let offsetX = odX
+                break;
+            case "10":
+                arrayten.pop()
+                change_Array_sum = change_Array_sum - 10
+
+                break;
+            case "50":
+                arrayfifty.pop()
+                change_Array_sum = change_Array_sum - 50
+
+                break;
+            case "100":
+                arrayhun.pop()
+                change_Array_sum = change_Array_sum - 100
+
+                break;
+            case "500":
+                arrayfivehun.pop()
+                change_Array_sum = change_Array_sum - 500
+
+                break;
+            case "1000":
+                arrayths.pop()
+                change_Array_sum = change_Array_sum - 1000
+
+                break;
+
+            default:
+                break;
+        }
+        truemove = 0
+    }
     document.body.removeChild(jijo);
-    // let h
-    // if (e.changedTouches[0].clientY - yoyot - e.target.height / 2 < 0) {
-    //     h = 35
-    // } else if ((e.changedTouches[0].clientY - yoyot - e.target.height / 2 + e.target.height) > ($('.canvas_wrapper').height())) {
-    //     h = $('.canvas_wrapper').height() - e.target.height - 20
-    // } else {
-    //     h = e.changedTouches[0].clientY - yoyot - e.target.height / 2
-    // }
-    // let w
-    // if (e.changedTouches[0].clientX - yoyo - e.target.width / 2 < 0) {
-    //     w = 0
-    // }
-    // else if (e.changedTouches[0].clientX - yoyo - e.target.width / 2 + e.target.width > ($('.canvas_wrapper').width())) {
-    //     w = $('.canvas_wrapper').width() * 999 + e.target.width / 2
-    // }
-    // else {
-    //     w = e.changedTouches[0].clientX - yoyo - e.target.width
-    // }
 
-    // const { offsetX, offsetY } = e.e
+    var oriTop = e.changedTouches[0].clientY - e.target.height
+    var oriLeft = e.changedTouches[0].clientX - e.target.width
 
-
-    // cursor_padding
-    // obj_padding
-    var oriTop = e.changedTouches[0].clientY  - e.target.height 
-    var oriLeft = e.changedTouches[0].clientX - e.target.width 
-    // if()
     var mix_padding = (obj_padding) + (cursor_padding / 2)
-    // var mix_padding = 0
+
 
 
     if (oriTop - mix_padding < 0) {
-        oriTop = mix_padding 
+        oriTop = mix_padding
     }
-    if (oriLeft <0) {
+    if (oriLeft < 0) {
         oriLeft = 0
     }
     if (oriTop + movingImage.height > $('.canvas-container').height()) {
-        oriTop = $('.canvas-container').height() - movingImage.height 
+        oriTop = $('.canvas-container').height() - movingImage.height
     }
-    if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width()*0.788) {
-        oriLeft = $('.canvas-container').width()*0.788 - movingImage.width - mix_padding
+    if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
+        oriLeft = $('.canvas-container').width() * 0.788 - movingImage.width - mix_padding
     }
 
 
@@ -161,10 +190,10 @@ function pushimg(e) {
 
         }
         Array_sum = SumData(ArrTest)
-        $(".count").val(Array_sum)
+        $(".count").val(Array_sum+ change_Array_sum)
     }, 500)
 
-    
+
 }
 
 
@@ -172,7 +201,50 @@ function pushimg(e) {
 
 function dropImg(e) {
     const { offsetX, offsetY } = e.e
+    if (truemove == 1) {
+        console.log(movingImage.alt)
+        let alt = movingImage.alt
+        switch (alt) {
+            case "1":
+                arrayOne.pop()
+                change_Array_sum = change_Array_sum - 1
+                break;
+            case "5":
+                arrayfive.pop()
+                change_Array_sum = change_Array_sum - 5
 
+                break;
+            case "10":
+                arrayten.pop()
+                change_Array_sum = change_Array_sum - 10
+
+                break;
+            case "50":
+                arrayfifty.pop()
+                change_Array_sum = change_Array_sum - 50
+
+                break;
+            case "100":
+                arrayhun.pop()
+                change_Array_sum = change_Array_sum - 100
+
+                break;
+            case "500":
+                arrayfivehun.pop()
+                change_Array_sum = change_Array_sum - 500
+
+                break;
+            case "1000":
+                arrayths.pop()
+                change_Array_sum = change_Array_sum - 1000
+
+                break;
+
+            default:
+                break;
+        }
+        truemove = 0
+    }
 
     // cursor_padding
     // obj_padding
@@ -185,16 +257,16 @@ function dropImg(e) {
 
 
     if (oriTop - mix_padding < 0) {
-        oriTop = mix_padding 
+        oriTop = mix_padding
     }
-    if (oriLeft - mix_padding <0) {
-        oriLeft =  mix_padding 
+    if (oriLeft - mix_padding < 0) {
+        oriLeft = mix_padding
     }
     if (oriTop + movingImage.height > $('.canvas-container').height()) {
-        oriTop = $('.canvas-container').height() - movingImage.height 
+        oriTop = $('.canvas-container').height() - movingImage.height
     }
-    if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width()*0.788) {
-        oriLeft = $('.canvas-container').width()*0.788 - movingImage.width - mix_padding
+    if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
+        oriLeft = $('.canvas-container').width() * 0.788 - movingImage.width - mix_padding
     }
     const image_qq = new fabric.Image(movingImage, {
         width: movingImage.naturalWidth,
@@ -224,7 +296,7 @@ function dropImg(e) {
 
         }
         Array_sum = SumData(ArrTest)
-        $(".count").val(Array_sum)
+        $(".count").val(Array_sum+ change_Array_sum)
     }, 500)
 }
 
@@ -246,7 +318,7 @@ imgset.addEventListener("touchend", pushimg);
 
 
 
-var toucharea =  document.querySelector(".box")
+var toucharea = document.querySelector(".box")
 
 
 var startx, starty;
@@ -280,12 +352,12 @@ function getDirection(startx, starty, endx, endy) {
     return result;
 }
 //手指接觸螢幕
-toucharea.addEventListener("touchstart", function(e) {
+toucharea.addEventListener("touchstart", function (e) {
     startx = e.touches[0].pageX;
     starty = e.touches[0].pageY;
 }, false);
 //手指離開螢幕
-toucharea.addEventListener("touchend", function(e) {
+toucharea.addEventListener("touchend", function (e) {
     var endx, endy;
     endx = e.changedTouches[0].pageX;
     endy = e.changedTouches[0].pageY;
@@ -294,11 +366,11 @@ toucharea.addEventListener("touchend", function(e) {
         case 0:
             break;
         case 1:
-     
+
             var bgP = $('.img_box').css('backgroundSize')
             var jj = bgP.slice(5, 15)
             stagenum = stagenum - parseInt(jj) / 7
-        
+
             // //當滑輪向上滾動時 
             $('.img_box').css({
                 backgroundPosition: `0 ${Math.round(378 * sRSS) + stagenum}px`
@@ -309,7 +381,7 @@ toucharea.addEventListener("touchend", function(e) {
             var bgP = $('.img_box').css('backgroundSize')
             var jj = bgP.slice(5, 15)
             stagenum = parseInt(jj) / 7 + stagenum
-        
+
             $('.img_box').css({
                 backgroundPosition: `0 ${Math.round(378 * sRSS) + stagenum}px`
             })

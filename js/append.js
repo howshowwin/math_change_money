@@ -812,7 +812,7 @@ function appendmoney() {
 
         }
         Array_sum = SumData(ArrTest)
-        $(".count").val(Array_sum)
+        $(".count").val(Array_sum+ change_Array_sum)
     }, 500)
 
 

@@ -68,6 +68,18 @@ $('.realmoneyarea').click(function () {
         $('.img_five').attr('src', `${src_five}`)
         $('.img_one').attr('src', `${src_one}`)
 
+
+        $('.img_thd1').attr('src', `${src_thd}`)
+        $('.img_fiv1').attr('src', `${src_fiftyhun}`)
+        $('.img_hun1').attr('src', `${src_hun}`)
+        $('.img_fif1').attr('src', `${src_fifty}`)
+        $('.img_ten1').attr('src', `${src_ten}`)
+        $('.img_ive1').attr('src', `${src_five}`)
+        $('.img_one1').attr('src', `${src_one}`)
+
+
+
+
         $('.img_box').css({
             background: "url(img/bar34.png)",
             width: Math.round(330 * sRSS),
@@ -113,6 +125,22 @@ $('.realmoneyarea').click(function () {
         $('.img_ten').attr('src', `${src_ten}`)
         $('.img_five').attr('src', `${src_five}`)
         $('.img_one').attr('src', `${src_one}`)
+
+
+
+        $('.img_thd1').attr('src', `${src_thd}`)
+        $('.img_fiv1').attr('src', `${src_fiftyhun}`)
+        $('.img_hun1').attr('src', `${src_hun}`)
+        $('.img_fif1').attr('src', `${src_fifty}`)
+        $('.img_ten1').attr('src', `${src_ten}`)
+        $('.img_ive1').attr('src', `${src_five}`)
+        $('.img_one1').attr('src', `${src_one}`)
+
+
+
+
+
+
         $('.img_box').css({
             background: "url(img/bar22.png)",
             width: Math.round(330 * sRSS),
@@ -466,7 +494,7 @@ $('.count').blur(function (e) {
 
             }
             Array_sum = SumData(ArrTest)
-            $(".count").val(Array_sum)
+            $(".count").val(Array_sum + change_Array_sum)
         }, 500)
     } else {
         if (keydownblur == 0) {
@@ -522,6 +550,14 @@ $('.useteach').click(function () {
 })
 $('.delete_btn').click(function () {
     if (blurnow == 0) {
+        arrayOne = []
+        arrayfive = []
+        arrayten = []
+        arrayfifty = []
+        arrayhun = []
+        arrayfivehun = []
+        arrayths = []
+
         canvas.clear()
         $('.count').val(0)
         thdcount = -1
@@ -633,7 +669,7 @@ fabric.Canvas.prototype.customiseControls({
 
                 }
                 Array_sum = SumData(ArrTest)
-                $(".count").val(Array_sum)
+                $(".count").val(Array_sum + change_Array_sum)
             }, 500)
 
 
@@ -782,7 +818,7 @@ canvas.on('object:scaling', function (e) {
     obj.setCoords();
     var brNew = obj.getBoundingRect();
 
-    if (((brNew.width + brNew.left) >= obj.canvas.width - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
+    if (((brNew.width + brNew.left) >= obj.canvas.width*0.80 - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
         obj.left = left1;
         obj.top = top1;
         obj.scaleX = scale1x;
@@ -804,7 +840,7 @@ canvas.on('object:rotating', function (e) {
     obj.setCoords();
     var brNew = obj.getBoundingRect();
 
-    if (((brNew.width + brNew.left) >= obj.canvas.width - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
+    if (((brNew.width + brNew.left) >= obj.canvas.width*0.80 - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
         obj.left = left1;
         obj.top = top1;
         obj.scaleX = scale1x;
@@ -829,6 +865,15 @@ canvas.on('object:rotating', function (e) {
 
 
 
+var arrayOne = []
+var arrayfive = []
+var arrayten = []
+var arrayfifty = []
+var arrayhun = []
+var arrayfivehun = []
+var arrayths = []
+
+
 
 
 
@@ -846,12 +891,12 @@ canvas.on('object:moving', function (e) {
         obj.left = Math.max(obj.left, obj.left + (30 * sRSS) - obj.getBoundingRect().left);
     }
     // bot-right corner
-    if (obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width) {
-        obj.top = Math.min(obj.top, obj.canvas.height - obj.getBoundingRect().height + obj.top - obj.getBoundingRect().top);
-        obj.left = Math.min(obj.left, obj.canvas.width - (30 * sRSS) - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
-    }
+    // if (obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width) {
+    //     obj.top = Math.min(obj.top, obj.canvas.height - obj.getBoundingRect().height + obj.top - obj.getBoundingRect().top);
+    //     obj.left = Math.min(obj.left, obj.canvas.width - (30 * sRSS) - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
+    // }
 
-    if (obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width * 0.78 && obj.getBoundingRect().top + obj.getBoundingRect().height > obj.canvas.height * 0.65) {
+    if (obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width * 0.78) {
         obj.left = Math.min(obj.left, obj.canvas.width * 0.78 - (30 * sRSS) - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
 
     }
@@ -873,52 +918,119 @@ canvas.on('object:moving', function (e) {
     obj.setCoords();
 
     // if ((obj.getBoundingRect().left + obj.getBoundingRect().width/2) > obj.canvas.width * 0.80 && obj.getBoundingRect().top + obj.getBoundingRect().height < obj.canvas.height * 0.65) {
+    var clientXnow = e.e.clientX
+
+    if (isAndroid || isiOS) {
+         clientXnow = e.e.targetTouches[0].clientX
+    }
+
+
 
     if (objjj == e.target) {
-        if (obj.getBoundingRect().left > obj.canvas.width * 0.80 && obj.getBoundingRect().top + obj.getBoundingRect().height < obj.canvas.height * 0.65) {
+        if (clientXnow > objjj.canvas.width * 0.85) {
             var index = changeArray.indexOf(objjj);
             if (index > -1) {
             } else {
+                if (objjj._element.alt == 1) {
+                    arrayOne.push(objjj)
+                } else if (objjj._element.alt == 5) {
+                    arrayfive.push(objjj)
+                } else if (objjj._element.alt == 10) {
+                    arrayten.push(objjj)
+                } else if (objjj._element.alt == 50) {
+                    arrayfifty.push(objjj)
+                } else if (objjj._element.alt == 100) {
+                    arrayhun.push(objjj)
+                } else if (objjj._element.alt == 500) {
+                    arrayfivehun.push(objjj)
+                } else if (objjj._element.alt == 1000) {
+                    arrayths.push(objjj)
+                }
                 changeArray.push(objjj)
+                canvas.remove(objjj)
+
             }
-        } else {
-            var index = changeArray.indexOf(objjj);
-            if (index > -1) {
-                changeArray.splice(index, 1);
-            }
+
+
+
+
 
         }
     }
 
     if (objjj == obj._objects) {
         for (i = 0; i < objjj.length; i++) {
-            if ((obj.left + (obj.width / 2) + objjj[i].left) > obj.canvas.width * 0.80) {
+            if (clientXnow > obj.canvas.width * 0.85) {
+
                 var index = changeArray.indexOf(objjj[i]);
                 if (index > -1) {
                 } else {
+                    if (objjj[i]._element.alt == 1) {
+                        arrayOne.push(objjj[i])
+                    } else if (objjj[i]._element.alt == 5) {
+                        arrayfive.push(objjj[i])
+                    } else if (objjj[i]._element.alt == 10) {
+                        arrayten.push(objjj[i])
+                    } else if (objjj[i]._element.alt == 50) {
+                        arrayfifty.push(objjj[i])
+                    } else if (objjj[i]._element.alt == 100) {
+                        arrayhun.push(objjj[i])
+                    } else if (objjj[i]._element.alt == 500) {
+                        arrayfivehun.push(objjj[i])
+                    } else if (objjj[i]._element.alt == 1000) {
+                        arrayths.push(objjj[i])
+                    }
                     changeArray.push(objjj[i])
+                    canvas.remove(objjj[i])
+                    canvas.discardActiveObject()
+
+
                 }
-            } else {
-                var index = changeArray.indexOf(objjj[i]);
-                if (index > -1) {
-                    changeArray.splice(index, 1);
-                }
+
+
+
+
+
+
             }
         }
     }
+
     var stage = new Array()
-    for (i = 0; i < changeArray.length; i++) {
-        stage.push(parseInt(changeArray[i]._element.alt))
+
+
+    function pusharray(arr) {
+        for (i = 0; i < arr.length; i++) {
+            stage.push(parseInt(arr[i]._element.alt))
+        }
     }
 
 
+    pusharray(arrayOne)
+
+    pusharray(arrayten)
+    pusharray(arrayhun)
+    pusharray(arrayths)
+    pusharray(arrayfive)
+    pusharray(arrayfivehun)
+    pusharray(arrayfifty)
 
 
     change_Array_sum = SumData(stage)
 
+    setTimeout(function ww() {
+        var items = canvas.getObjects()
+        var Array_sum
+        var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
 
+        for (i = 0; i < items.length; i++) {
+            ArrTest[i] = parseInt(items[i]._element.alt)
 
+        }
+        Array_sum = SumData(ArrTest)
+        $(".count").val(Array_sum + change_Array_sum)
 
+    }, 500)
 
 
 
@@ -930,6 +1042,95 @@ canvas.on('object:moving', function (e) {
 
 var changeArray = new Array()
 var change_Array_sum = 0
+
+
+
+
+setInterval(function () {
+    if (arrayths.length != 0) {
+        $('.img_thd1').removeClass('display_none')
+        $('.thd1_num').removeClass('display_none')
+        $('.thd1_num .num_span').text(arrayths.length)
+    } else {
+        $('.img_thd1').addClass('display_none')
+        $('.thd1_num').addClass('display_none')
+        $('.thd1_num .num_span').text(0)
+    }
+
+    if (arrayfivehun.length != 0) {
+        $('.img_fiv1').removeClass('display_none')
+        $('.fiv1_num').removeClass('display_none')
+        $('.fiv1_num .num_span').text(arrayfivehun.length)
+
+    } else {
+        $('.img_fiv1').addClass('display_none')
+        $('.fiv1_num').addClass('display_none')
+        $('.fiv1_num .num_span').text(0)
+    }
+
+    if (arrayhun.length != 0) {
+        $('.img_hun1').removeClass('display_none')
+        $('.hun1_num').removeClass('display_none')
+        $('.hun1_num .num_span').text(arrayhun.length)
+
+    } else {
+        $('.img_hun1').addClass('display_none')
+        $('.hun1_num').addClass('display_none')
+        $('.hun1_num .num_span').text(0)
+    }
+
+    if (arrayfifty.length != 0) {
+        $('.img_fif1').removeClass('display_none')
+        $('.fif1_num').removeClass('display_none')
+        $('.fif1_num .num_span').text(arrayfifty.length)
+
+    } else {
+        $('.img_fif1').addClass('display_none')
+        $('.fif1_num').addClass('display_none')
+        $('.fif1_num .num_span').text(0)
+    }
+
+
+    if (arrayten.length != 0) {
+        $('.img_ten1').removeClass('display_none')
+        $('.ten1_num').removeClass('display_none')
+        $('.ten1_num .num_span').text(arrayten.length)
+
+    } else {
+        $('.img_ten1').addClass('display_none')
+        $('.ten1_num').addClass('display_none')
+        $('.ten1_num .num_span').text(0)
+    }
+
+    if (arrayfive.length != 0) {
+        $('.img_ive1').removeClass('display_none')
+        $('.ive1_num').removeClass('display_none')
+        $('.ive1_num .num_span').text(arrayfive.length)
+
+    } else {
+        $('.img_ive1').addClass('display_none')
+        $('.ive1_num').addClass('display_none')
+        $('.ive1_num .num_span').text(0)
+    }
+
+    if (arrayOne.length != 0) {
+        $('.img_one1').removeClass('display_none')
+        $('.one1_num').removeClass('display_none')
+        $('.one1_num .num_span').text(arrayOne.length)
+
+    } else {
+        $('.img_one1').addClass('display_none')
+        $('.one1_num').addClass('display_none')
+        $('.one1_num .num_span').text(0)
+    }
+}, 100)
+
+
+
+
+
+
+
 
 
 canvas.on('object:moved', function (e) {
@@ -967,7 +1168,7 @@ canvas.on('object:moved', function (e) {
 
             }
             Array_sum = SumData(ArrTest)
-            $(".count").val(Array_sum)
+            $(".count").val(Array_sum + change_Array_sum)
         }, 500)
     }
 
@@ -978,6 +1179,7 @@ var littlemoveleft = 0
 var littlemovetop = 0
 var start = 1
 $('.change_btn').click(function () {
+
     var bgP = $('.img_box').css('backgroundSize')
     var jj = bgP.slice(5, 15)
 
@@ -1443,6 +1645,13 @@ $('.change_btn').click(function () {
 
                 }
             }
+            arrayOne = []
+            arrayfive = []
+            arrayten = []
+            arrayfifty = []
+            arrayhun = []
+            arrayfivehun = []
+            arrayths = []
 
         } else {
             alert(`兌換後最大數不得大於50，目前兌換區域總數為${change_Array_sum}，請去除${change_Array_sum - 50}後再兌換，或另外選擇兌換單位`)
@@ -1886,7 +2095,13 @@ $('.change_btn').click(function () {
 
                 }
             }
-
+            arrayOne = []
+            arrayfive = []
+            arrayten = []
+            arrayfifty = []
+            arrayhun = []
+            arrayfivehun = []
+            arrayths = []
         } else if (change_Array_sum > 250) {
             alert(`兌換後最大數不得大於50，目前兌換區域總數為${change_Array_sum}，請去除${change_Array_sum - 250}後再兌換，或另外選擇兌換單位`)
         } else {
@@ -2332,7 +2547,13 @@ $('.change_btn').click(function () {
 
                 }
             }
-
+            arrayOne = []
+            arrayfive = []
+            arrayten = []
+            arrayfifty = []
+            arrayhun = []
+            arrayfivehun = []
+            arrayths = []
         } else if (change_Array_sum > 500) {
             alert(`兌換後最大數不得大於50，目前兌換區域總數為${change_Array_sum}，請去除${change_Array_sum - 500}後再兌換，或另外選擇兌換單位`)
         } else {
@@ -2763,7 +2984,13 @@ $('.change_btn').click(function () {
 
                 }
             }
-
+            arrayOne = []
+            arrayfive = []
+            arrayten = []
+            arrayfifty = []
+            arrayhun = []
+            arrayfivehun = []
+            arrayths = []
         } else if (change_Array_sum > 2500) {
             alert(`兌換後最大數不得大於50，目前兌換區域總數為${change_Array_sum}，請去除${change_Array_sum - 2500}後再兌換`)
         } else {
@@ -3221,7 +3448,13 @@ $('.change_btn').click(function () {
 
                 }
             }
-
+            arrayOne = []
+            arrayfive = []
+            arrayten = []
+            arrayfifty = []
+            arrayhun = []
+            arrayfivehun = []
+            arrayths = []
         } else if (change_Array_sum > 5000) {
             alert(`兌換後最大數不得大於50，目前兌換區域總數為${change_Array_sum}，請去除${change_Array_sum - 5000}後再兌換`)
         } else {
@@ -3653,7 +3886,13 @@ $('.change_btn').click(function () {
 
                 }
             }
-
+            arrayOne = []
+            arrayfive = []
+            arrayten = []
+            arrayfifty = []
+            arrayhun = []
+            arrayfivehun = []
+            arrayths = []
         } else if (change_Array_sum > 25000) {
             alert(`兌換後最大數不得大於50，目前兌換區域總數為${change_Array_sum}，請去除${change_Array_sum - 25000}後再兌換`)
         } else {
@@ -4088,7 +4327,13 @@ $('.change_btn').click(function () {
 
                 }
             }
-
+            arrayOne = []
+            arrayfive = []
+            arrayten = []
+            arrayfifty = []
+            arrayhun = []
+            arrayfivehun = []
+            arrayths = []
         } else if (change_Array_sum > 50000) {
             alert(`兌換後最大數不得大於50，目前兌換區域總數為${change_Array_sum}，請去除${change_Array_sum - 50000}後再兌換`)
         } else {
