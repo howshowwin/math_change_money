@@ -89,7 +89,6 @@ var push = false
 var image_q = new Array()
 
 function pushimg(e) {
-  if(startmove ==1){
     document.body.removeChild(jijo);
 
     var oriTop = e.changedTouches[0].clientY - e.target.height
@@ -194,9 +193,7 @@ function pushimg(e) {
         $(".count").val(Array_sum+ change_Array_sum)
     }, 500)
 
-    startmove = 0
-  }
-   
+
 }
 
 
