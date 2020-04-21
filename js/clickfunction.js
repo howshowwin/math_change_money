@@ -97,6 +97,7 @@ $('.realmoneyarea').click(function () {
         })
         var objse = canvas.getObjects()
         objse.forEach((obj) => {
+            console.log(obj)
             var whatisthis = obj._element.alt
             obj.setSrc(`img/b${whatisthis}.svg`,
                 function () {
@@ -162,7 +163,7 @@ $('.realmoneyarea').click(function () {
         objse.forEach((obj) => {
             var whatisthis = obj._element.alt
             console.log(whatisthis)
-            obj.setSrc(`img/a${whatisthis}.svg`,
+            obj.setSrc(`img/newa${whatisthis}.svg`,
                 function () {
                     obj._element.alt = whatisthis
                     canvas.renderAll();
