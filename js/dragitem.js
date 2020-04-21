@@ -37,8 +37,9 @@ function saveImg(e) {
 
 }
 var jijo = ''
+var startmove = 0
 function saveFoneImg(e) {
-
+    startmove  = 1 
     str_className = e.target.className
     str_className = str_className.substring(9, 19)
     console.log(str_className)
@@ -88,7 +89,30 @@ var push = false
 var image_q = new Array()
 
 function pushimg(e) {
-    if (truemove == 1) {
+  if(startmove ==1){
+    document.body.removeChild(jijo);
+
+    var oriTop = e.changedTouches[0].clientY - e.target.height
+    var oriLeft = e.changedTouches[0].clientX - e.target.width
+
+    var mix_padding = (obj_padding) + (cursor_padding / 2)
+
+
+    if (oriTop - mix_padding < 0) {
+        oriTop = mix_padding
+    }
+    if (oriLeft < 0) {
+        oriLeft = 0
+    }
+    if (oriTop + movingImage.height > $('.canvas-container').height()) {
+        movingImage = ""
+    }
+    if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
+        movingImage = ""
+    }
+
+
+    if (truemove == 1 ) {
         console.log(movingImage.alt)
         let alt = movingImage.alt
         switch (alt) {
@@ -132,29 +156,6 @@ function pushimg(e) {
         }
         truemove = 0
     }
-    document.body.removeChild(jijo);
-
-    var oriTop = e.changedTouches[0].clientY - e.target.height
-    var oriLeft = e.changedTouches[0].clientX - e.target.width
-
-    var mix_padding = (obj_padding) + (cursor_padding / 2)
-
-
-
-    if (oriTop - mix_padding < 0) {
-        oriTop = mix_padding
-    }
-    if (oriLeft < 0) {
-        oriLeft = 0
-    }
-    if (oriTop + movingImage.height > $('.canvas-container').height()) {
-        oriTop = $('.canvas-container').height() - movingImage.height
-    }
-    if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
-        oriLeft = $('.canvas-container').width() * 0.788 - movingImage.width - mix_padding
-    }
-
-
 
 
 
@@ -193,7 +194,9 @@ function pushimg(e) {
         $(".count").val(Array_sum+ change_Array_sum)
     }, 500)
 
-
+    startmove = 0
+  }
+   
 }
 
 
@@ -263,7 +266,7 @@ function dropImg(e) {
         oriLeft = mix_padding
     }
     if (oriTop + movingImage.height > $('.canvas-container').height()) {
-        oriTop = $('.canvas-container').height() - movingImage.height
+       break
     }
     if (oriLeft + movingImage.width + mix_padding > $('.canvas-container').width() * 0.788) {
         oriLeft = $('.canvas-container').width() * 0.788 - movingImage.width - mix_padding

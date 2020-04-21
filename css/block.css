@@ -14,6 +14,7 @@ body {
 }
 .opc0{
   opacity: 0;  
+  pointer-events: none;
 }
 .background1 {
     background: url(../img/bgc02.jpg);
