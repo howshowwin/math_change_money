@@ -161,11 +161,16 @@ $('.realmoneyarea').click(function () {
         })
         var objse = canvas.getObjects()
         objse.forEach((obj) => {
+            console.log(obj)
+            let scalenowX = obj.scaleX
+            let scalenowY = obj.scaleY
             var whatisthis = obj._element.alt
             console.log(whatisthis)
             obj.setSrc(`img/newa${whatisthis}.svg`,
                 function () {
                     obj._element.alt = whatisthis
+                    obj.scaleX = scalenowX
+                    obj.scaleY = scalenowY
                     canvas.renderAll();
                 });
 
@@ -819,7 +824,7 @@ canvas.on('object:scaling', function (e) {
     obj.setCoords();
     var brNew = obj.getBoundingRect();
 
-    if (((brNew.width + brNew.left) >= obj.canvas.width*0.80 - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
+    if (((brNew.width + brNew.left) >= obj.canvas.width * 0.80 - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
         obj.left = left1;
         obj.top = top1;
         obj.scaleX = scale1x;
@@ -841,7 +846,7 @@ canvas.on('object:rotating', function (e) {
     obj.setCoords();
     var brNew = obj.getBoundingRect();
 
-    if (((brNew.width + brNew.left) >= obj.canvas.width*0.80 - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
+    if (((brNew.width + brNew.left) >= obj.canvas.width * 0.80 - (20 * sRSS)) || ((brNew.height + brNew.top) >= obj.canvas.height - (20 * sRSS)) || ((brNew.left < (20 * sRSS)) || (brNew.top < (20 * sRSS)))) {
         obj.left = left1;
         obj.top = top1;
         obj.scaleX = scale1x;
@@ -922,7 +927,7 @@ canvas.on('object:moving', function (e) {
     var clientXnow = e.e.clientX
 
     if (isAndroid || isiOS) {
-         clientXnow = e.e.targetTouches[0].clientX
+        clientXnow = e.e.targetTouches[0].clientX
     }
 
 
