@@ -101,6 +101,8 @@ $('.realmoneyarea').click(function () {
             var scalenowY = obj.scaleY
             console.log(obj)
             var whatisthis = obj._element.alt
+            $('.test').text(obj.scaleX+","+obj.scaleY)
+
             obj.setSrc(`img/b${whatisthis}.svg`,
                 function () {
                     obj._element.alt = whatisthis
@@ -109,9 +111,12 @@ $('.realmoneyarea').click(function () {
                 });
             obj.scaleX = scalenowX
             obj.scaleY = scalenowY
-            $('.test').text(obj.scaleX+","+obj.scaleY)
         });
-
+        objse.forEach((obj) => {
+        
+  
+    
+        });
         canvas.renderAll()
         realmoneynow = 1
     }
