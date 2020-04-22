@@ -99,9 +99,8 @@ $('.realmoneyarea').click(function () {
         objse.forEach((obj) => {
             var scalenowX = obj.scaleX
             var scalenowY = obj.scaleY
-            console.log(obj)
             var whatisthis = obj._element.alt
-            obj.setSrc(`img/b${whatisthis}.svg`,
+            obj.setSrc(`img/b${whatisthis}.png`,
                 function () {
                     obj._element.alt = whatisthis
                     obj.scaleX = scalenowX
