@@ -104,11 +104,11 @@ $('.realmoneyarea').click(function () {
             obj.setSrc(`img/b${whatisthis}.svg`,
                 function () {
                     obj._element.alt = whatisthis
-                    obj.scaleX = 0.5
-                    obj.scaleY = 0.5
+
                     canvas.renderAll();
                 });
-
+            obj.scaleX = scalenowX
+            obj.scaleY = scalenowY
         });
 
         canvas.renderAll()
