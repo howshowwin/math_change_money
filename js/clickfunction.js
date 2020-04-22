@@ -109,6 +109,7 @@ $('.realmoneyarea').click(function () {
                 });
             obj.scaleX = scalenowX
             obj.scaleY = scalenowY
+            $('.test').text(obj.scaleX+","+obj.scaleY)
         });
 
         canvas.renderAll()

@@ -204,6 +204,14 @@ body {
     top: 26%;
     left: 46.8%;
 }
+.test{
+    position: absolute;
+    z-index: 999;
+    top: 10%;
+    left: 10%;
+    font-size: 50px;
+
+}
 .choosenum7{
     top: 26%;
     left: 55.7%;
