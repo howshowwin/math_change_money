@@ -108,12 +108,12 @@ $('.realmoneyarea').click(function () {
 
                     canvas.renderAll();
                 });
-     
+
         });
         objse.forEach((obj) => {
-        
-  
-    
+            obj.scaleX = 0.8
+            obj.scaleY = 0.8
+
         });
         canvas.renderAll()
         realmoneynow = 1
@@ -1148,7 +1148,7 @@ setInterval(function () {
 
 canvas.on('object:moved', function (e) {
     var obj = e.target;
-    $('.test').text(obj.scaleX+","+obj.scaleY)
+    $('.test').text(obj.scaleX + "," + obj.scaleY)
 
     if (obj.getBoundingRect().top + obj.getBoundingRect().height > $('.canvas-container').height() + $('.canvas-container').offset().top) {
 
