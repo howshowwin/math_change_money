@@ -111,8 +111,8 @@ $('.realmoneyarea').click(function () {
 
         });
         objse.forEach((obj) => {
-            obj.scaleX = 0.8
-            obj.scaleY = 0.8
+            obj.scaleX =  sRSS
+            obj.scaleY =  sRSS
 
         });
         canvas.renderAll()
