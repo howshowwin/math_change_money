@@ -110,11 +110,26 @@ $('.realmoneyarea').click(function () {
                 });
 
         });
-        objse.forEach((obj) => {
-            obj.scaleX =  sRSS
-            obj.scaleY =  sRSS
-
-        });
+        if (isiOS) {
+            objse.forEach((obj) => {
+                if (parseInt(obj._element.alt) > 50) {
+                    obj.scaleX = obj.scaleX * sRSS
+                    obj.scaleY = obj.scaleX * sRSS
+                }
+                else if (parseInt(obj._element.alt) == 50) {
+                    obj.scaleX = obj.scaleX * 0.9 * sRSS
+                    obj.scaleY = obj.scaleX * 0.9 * sRSS
+                }
+                else if (parseInt(obj._element.alt) < 50) {
+                    obj.scaleX = obj.scaleX * 0.85 * sRSS
+                    obj.scaleY = obj.scaleX * 0.85 * sRSS
+                }
+                else if (parseInt(obj._element.alt) == 1) {
+                    obj.scaleX = obj.scaleX * 0.80 * sRSS
+                    obj.scaleY = obj.scaleX * 0.80 * sRSS
+                }
+            });
+        }
         canvas.renderAll()
         realmoneynow = 1
     }
@@ -169,22 +184,38 @@ $('.realmoneyarea').click(function () {
         var objse = canvas.getObjects()
         objse.forEach((obj) => {
             console.log(obj)
-  
+
             var whatisthis = obj._element.alt
             console.log(whatisthis)
             obj.setSrc(`img/newa${whatisthis}.svg`,
                 function () {
                     obj._element.alt = whatisthis
-               
+
                     canvas.renderAll();
                 });
 
         });
-        objse.forEach((obj) => {
-            obj.scaleX =  sRSS
-            obj.scaleY =  sRSS
+        if (isiOS) {
+            objse.forEach((obj) => {
+                if (parseInt(obj._element.alt) > 50) {
+                    obj.scaleX = obj.scaleX * sRSS
+                    obj.scaleY = obj.scaleX * sRSS
+                }
 
-        });
+                else if (parseInt(obj._element.alt) == 50) {
+                    obj.scaleX = obj.scaleX * 0.9 * sRSS
+                    obj.scaleY = obj.scaleX * 0.9 * sRSS
+                }
+                else if (parseInt(obj._element.alt) < 50) {
+                    obj.scaleX = obj.scaleX * 0.85 * sRSS
+                    obj.scaleY = obj.scaleX * 0.85 * sRSS
+                }
+                else if (parseInt(obj._element.alt) == 1) {
+                    obj.scaleX = obj.scaleX * 0.80 * sRSS
+                    obj.scaleY = obj.scaleX * 0.80 * sRSS
+                }
+            });
+        }
         realmoneynow = 0
 
 

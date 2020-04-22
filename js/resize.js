@@ -30,7 +30,7 @@ var src_five = 'img/newa5.svg'
 var src_one = 'img/newa1.svg'
 
 
-var countscale
+var countscaleone 
 
 
 function convertSizeALL(className) {
@@ -80,8 +80,6 @@ function convertSizeALL(className) {
     $('.img_one1').css({ width: Math.round(50 * sRatio), height: Math.round(50 * sRatio) });
 
     $('.now_num').css({ fontSize: Math.round(20 * sRatio) })
-
-
 
 
 
