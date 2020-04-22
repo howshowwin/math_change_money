@@ -111,7 +111,7 @@ $('.realmoneyarea').click(function () {
 
         });
 
-        canvas.renderAll()
+        // canvas.renderAll()
         realmoneynow = 1
     }
     else if (realmoneynow == 1) {
