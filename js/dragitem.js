@@ -16,7 +16,7 @@ var oldimgX = ''
 var oldimgY = ''
 var str_className = ''
 var truemove = 0
-
+var scale
 function saveImg(e) {
     str_className = e.target.className
     str_className = str_className.substring(9, 19)

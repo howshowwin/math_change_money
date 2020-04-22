@@ -97,8 +97,8 @@ $('.realmoneyarea').click(function () {
         })
         var objse = canvas.getObjects()
         objse.forEach((obj) => {
-            let scalenowX = obj.scaleX
-            let scalenowY = obj.scaleY
+            var scalenowX = obj.scaleX
+            var scalenowY = obj.scaleY
             console.log(obj)
             var whatisthis = obj._element.alt
             obj.setSrc(`img/b${whatisthis}.svg`,
@@ -161,13 +161,12 @@ $('.realmoneyarea').click(function () {
         $('.realpic').css({
             backgroundPosition: "0 0px"
 
-
         })
         var objse = canvas.getObjects()
         objse.forEach((obj) => {
             console.log(obj)
-            let scalenowX = obj.scaleX
-            let scalenowY = obj.scaleY
+            var scalenowX = obj.scaleX
+            var scalenowY = obj.scaleY
             var whatisthis = obj._element.alt
             console.log(whatisthis)
             obj.setSrc(`img/newa${whatisthis}.svg`,
