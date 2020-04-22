@@ -101,7 +101,6 @@ $('.realmoneyarea').click(function () {
             var scalenowY = obj.scaleY
             console.log(obj)
             var whatisthis = obj._element.alt
-            $('.test').text(obj.scaleX+","+obj.scaleY)
 
             obj.setSrc(`img/b${whatisthis}.svg`,
                 function () {
@@ -109,8 +108,7 @@ $('.realmoneyarea').click(function () {
 
                     canvas.renderAll();
                 });
-            obj.scaleX = scalenowX
-            obj.scaleY = scalenowY
+     
         });
         objse.forEach((obj) => {
         
@@ -1150,6 +1148,8 @@ setInterval(function () {
 
 canvas.on('object:moved', function (e) {
     var obj = e.target;
+    $('.test').text(obj.scaleX+","+obj.scaleY)
+
     if (obj.getBoundingRect().top + obj.getBoundingRect().height > $('.canvas-container').height() + $('.canvas-container').offset().top) {
 
         var obj = e.target;
