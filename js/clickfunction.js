@@ -125,8 +125,8 @@ $('.realmoneyarea').click(function () {
                     obj.scaleY =  0.85 * sRSS
                 }
                 else if (parseInt(obj._element.alt) == 1) {
-                    obj.scaleX =  0.80 * sRSS
-                    obj.scaleY =  0.80 * sRSS
+                    obj.scaleX =  0.75 * sRSS
+                    obj.scaleY =  0.75 * sRSS
                 }
             });
         }
@@ -211,8 +211,8 @@ $('.realmoneyarea').click(function () {
                     obj.scaleY =  0.85 * sRSS
                 }
                 else if (parseInt(obj._element.alt) == 1) {
-                    obj.scaleX =  0.80 * sRSS
-                    obj.scaleY =  0.80 * sRSS
+                    obj.scaleX =  0.75 * sRSS
+                    obj.scaleY =  0.75 * sRSS
                 }
             });
         }
