@@ -169,17 +169,20 @@ $('.realmoneyarea').click(function () {
         var objse = canvas.getObjects()
         objse.forEach((obj) => {
             console.log(obj)
-            var scalenowX = obj.scaleX
-            var scalenowY = obj.scaleY
+  
             var whatisthis = obj._element.alt
             console.log(whatisthis)
             obj.setSrc(`img/newa${whatisthis}.svg`,
                 function () {
                     obj._element.alt = whatisthis
-                    obj.scaleX = scalenowX
-                    obj.scaleY = scalenowY
+               
                     canvas.renderAll();
                 });
+
+        });
+        objse.forEach((obj) => {
+            obj.scaleX =  sRSS
+            obj.scaleY =  sRSS
 
         });
         realmoneynow = 0
