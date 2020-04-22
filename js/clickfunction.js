@@ -125,8 +125,8 @@ $('.realmoneyarea').click(function () {
                     obj.scaleY =  0.85 * sRSS
                 }
                 else if (parseInt(obj._element.alt) == 1) {
-                    obj.scaleX =  0.75 * sRSS
-                    obj.scaleY =  0.75 * sRSS
+                    obj.scaleX =  0.70 * sRSS
+                    obj.scaleY =  0.70 * sRSS
                 }
             });
         }
