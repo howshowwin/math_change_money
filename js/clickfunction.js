@@ -113,20 +113,20 @@ $('.realmoneyarea').click(function () {
         if (isiOS) {
             objse.forEach((obj) => {
                 if (parseInt(obj._element.alt) > 50) {
-                    obj.scaleX = obj.scaleX * sRSS
-                    obj.scaleY = obj.scaleX * sRSS
+                    obj.scaleX =  sRSS
+                    obj.scaleY =  sRSS
                 }
                 else if (parseInt(obj._element.alt) == 50) {
-                    obj.scaleX = obj.scaleX * 0.9 * sRSS
-                    obj.scaleY = obj.scaleX * 0.9 * sRSS
+                    obj.scaleX =  0.9 * sRSS
+                    obj.scaleY =  0.9 * sRSS
                 }
                 else if (parseInt(obj._element.alt) < 50) {
-                    obj.scaleX = obj.scaleX * 0.85 * sRSS
-                    obj.scaleY = obj.scaleX * 0.85 * sRSS
+                    obj.scaleX =  0.85 * sRSS
+                    obj.scaleY =  0.85 * sRSS
                 }
                 else if (parseInt(obj._element.alt) == 1) {
-                    obj.scaleX = obj.scaleX * 0.80 * sRSS
-                    obj.scaleY = obj.scaleX * 0.80 * sRSS
+                    obj.scaleX =  0.80 * sRSS
+                    obj.scaleY =  0.80 * sRSS
                 }
             });
         }
@@ -198,21 +198,21 @@ $('.realmoneyarea').click(function () {
         if (isiOS) {
             objse.forEach((obj) => {
                 if (parseInt(obj._element.alt) > 50) {
-                    obj.scaleX = obj.scaleX * sRSS
-                    obj.scaleY = obj.scaleX * sRSS
+                    obj.scaleX =  sRSS
+                    obj.scaleY =  sRSS
                 }
 
                 else if (parseInt(obj._element.alt) == 50) {
-                    obj.scaleX = obj.scaleX * 0.9 * sRSS
-                    obj.scaleY = obj.scaleX * 0.9 * sRSS
+                    obj.scaleX =  0.9 * sRSS
+                    obj.scaleY =  0.9 * sRSS
                 }
                 else if (parseInt(obj._element.alt) < 50) {
-                    obj.scaleX = obj.scaleX * 0.85 * sRSS
-                    obj.scaleY = obj.scaleX * 0.85 * sRSS
+                    obj.scaleX =  0.85 * sRSS
+                    obj.scaleY =  0.85 * sRSS
                 }
                 else if (parseInt(obj._element.alt) == 1) {
-                    obj.scaleX = obj.scaleX * 0.80 * sRSS
-                    obj.scaleY = obj.scaleX * 0.80 * sRSS
+                    obj.scaleX =  0.80 * sRSS
+                    obj.scaleY =  0.80 * sRSS
                 }
             });
         }
