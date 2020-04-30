@@ -10,6 +10,9 @@ $(function () {
 
     $(window).on('load', function () {
         objSizeReset();
+        $('.defaultImg').removeClass('loadingnone')
+        $('.now_num').removeClass('loadingnone')
+
     });
 
 

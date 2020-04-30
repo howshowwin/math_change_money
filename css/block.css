@@ -297,9 +297,15 @@ body {
 }
 .img_block2{
     cursor: pointer;
+    
 }
 .now_num{
     position: absolute;
+  
+
+}
+.loadingnone{
+    opacity: 0;
 }
 .thd1_num{
     top: 18.5%;
