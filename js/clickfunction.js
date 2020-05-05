@@ -3743,18 +3743,31 @@ $('.change_btn').click(function () {
 
             // arrayOne = arrayOne.splice(0, remaining)
 
-            console.log(arrayfive)
-            if (arrayfive.length != 0) {
-                console.log(arrayfive.length)
-                if ((remaining) >= 5) {
-                    arrayfive = arrayfive.splice(0, 1)
-                    remaining = remaining - 5
+            let ch500 = remaining
+
+            if ((ch500 - 5) >= 0 && arrayfive.length != 0) {
+                for (i = 0; i < arrayfive.length; i++) {
+                    ch500 = ch500 - 5
+                    if ((ch500 - 5) < 0) {
+                        arrayfive = arrayfive.splice(0, i + 1)
+                        break
+                    }
                 }
-                arrayOne = arrayOne.splice(0, remaining)
             } else {
-                arrayOne = arrayOne.splice(0, remaining)
+                arrayfive = []
             }
 
+            if ((ch500 - 1) >= 0 && arrayOne.length != 0) {
+                for (i = 0; i < arrayOne.length; i++) {
+                    ch500 = ch500 - 1
+                    if ((ch500 - 1) < 0) {
+                        arrayOne = arrayOne.splice(0, i + 1)
+                        break
+                    }
+                }
+            } else {
+                arrayOne = []
+            }
 
 
             arrayten = []
@@ -4637,64 +4650,43 @@ $('.change_btn').click(function () {
                 }
             }
 
-            if (arrayten.length != 0) {
+            let ch500 = remaining
 
-                let q = remaining
-                let op = arrayten.length
+            if ((ch500 - 10) >= 0 && arrayten.length != 0) {
                 for (i = 0; i < arrayten.length; i++) {
-                    op--
-                    if ((q - 10) < 0) {
-                        remaining = q
-                        arrayten = arrayten.splice(0, i)
-                        let w = q
-                        for (k = 0; k < arrayfive.length; k++) {
-                            if ((w - 5) < 0) {
-                                remaining = w
-                                arrayfive = arrayfive.splice(0, k)
-                                break
-                            }
-                            w = w - 5
-                        }
-                        break
-                    }
-
-
-                    q = q - 10
-                    if (op == 0) {
-                        remaining = q
+                    ch500 = ch500 - 10
+                    if ((ch500 - 10) < 0) {
                         arrayten = arrayten.splice(0, i + 1)
-                        let w = q
-                        for (k = 0; k < arrayfive.length; k++) {
-                            if ((w - 5) < 0) {
-                                remaining = w
-                                arrayfive = arrayfive.splice(0, k)
-                                break
-                            }
-                            w = w - 5
-                        }
                         break
                     }
                 }
-                arrayOne = arrayOne.splice(0, remaining)
-
             } else {
-                if (arrayfive.length != 0) {
-                    let q = remaining
-                    for (i = 0; i < arrayfive.length; i++) {
-                        if ((q - 5) < 0) {
-                            remaining = q
-                            arrayfive = arrayfive.splice(0, i)
-                            break
-                        }
-                        q = q - 5
-                    }
-
-                    arrayOne = arrayOne.splice(0, remaining)
-                } else {
-                    arrayOne = arrayOne.splice(0, remaining)
-                }
+                arrayten = []
             }
 
+            if ((ch500 - 5) >= 0 && arrayfive.length != 0) {
+                for (i = 0; i < arrayfive.length; i++) {
+                    ch500 = ch500 - 5
+                    if ((ch500 - 5) < 0) {
+                        arrayfive = arrayfive.splice(0, i + 1)
+                        break
+                    }
+                }
+            } else {
+                arrayfive = []
+            }
+
+            if ((ch500 - 1) >= 0 && arrayOne.length != 0) {
+                for (i = 0; i < arrayOne.length; i++) {
+                    ch500 = ch500 - 1
+                    if ((ch500 - 1) < 0) {
+                        arrayOne = arrayOne.splice(0, i + 1)
+                        break
+                    }
+                }
+            } else {
+                arrayOne = []
+            }
 
 
 
@@ -5604,123 +5596,53 @@ $('.change_btn').click(function () {
                 }
             }
 
-            if (arrayfifty.length != 0) {
-                let q = remaining
-                let opp = arrayfifty.length
+            let ch500 = remaining
+            if ((ch500 - 50) >= 0 && arrayfifty.length != 0) {
                 for (i = 0; i < arrayfifty.length; i++) {
-                    opp--
-                    if ((q - 50) < 0) {
-                        remaining = q
-                        arrayfifty = arrayfifty.splice(0, i)
-                        let w = q
-                        for (k = 0; k < arrayten.length; k++) {
-                            if ((w - 10) < 0) {
-                                remaining = w
-                                arrayten = arrayten.splice(0, k)
-                                let ro = w
-                                for (y = 0; y < arrayfive.length; y++) {
-                                    if ((ro - 5) < 0) {
-                                        remaining = ro
-                                        arrayfive = arrayfive.splice(0, y)
-                                        break
-                                    }
-                                    ro = ro - 5
-                                }
-                                break
-                            }
-                            w = w - 10
-                        }
-                        break
-                    }
-                    q = q - 50
-                    if (opp == 0) {
-                        remaining = q
+                    ch500 = ch500 - 50
+                    if ((ch500 - 50) < 0) {
                         arrayfifty = arrayfifty.splice(0, i + 1)
-                        let w = q
-                        for (k = 0; k < arrayten.length; k++) {
-                            if ((w - 10) < 0) {
-                                remaining = w
-                                arrayten = arrayten.splice(0, k)
-                                let ro = w
-                                for (y = 0; y < arrayfive.length; y++) {
-                                    if ((ro - 5) < 0) {
-                                        remaining = ro
-                                        arrayfive = arrayfive.splice(0, y)
-                                        break
-                                    }
-                                    ro = ro - 5
-                                }
-                                break
-                            }
-                            w = w - 10
-                        }
                         break
                     }
                 }
-
-                arrayOne = arrayOne.splice(0, remaining)
-
             } else {
-                if (arrayten.length != 0) {
+                arrayfifty = []
+            }
 
-                    let q = remaining
-                    let op = arrayten.length
-                    for (i = 0; i < arrayten.length; i++) {
-                        op--
-                        if ((q - 10) < 0) {
-                            remaining = q
-                            arrayten = arrayten.splice(0, i)
-                            let w = q
-                            for (k = 0; k < arrayfive.length; k++) {
-                                if ((w - 5) < 0) {
-                                    remaining = w
-                                    arrayfive = arrayfive.splice(0, k)
-                                    break
-                                }
-                                w = w - 5
-                            }
-                            break
-                        }
-
-
-                        q = q - 10
-                        if (op == 0) {
-                            remaining = q
-                            arrayten = arrayten.splice(0, i + 1)
-                            let w = q
-                            for (k = 0; k < arrayfive.length; k++) {
-                                if ((w - 5) < 0) {
-                                    remaining = w
-                                    arrayfive = arrayfive.splice(0, k)
-                                    break
-                                }
-                                w = w - 5
-                            }
-                            break
-                        }
-                    }
-                    arrayOne = arrayOne.splice(0, remaining)
-
-                } else {
-                    if (arrayfive.length != 0) {
-                        let q = remaining
-                        for (i = 0; i < arrayfive.length; i++) {
-                            if ((q - 5) < 0) {
-                                remaining = q
-                                arrayfive = arrayfive.splice(0, i)
-                                break
-                            }
-                            q = q - 5
-                        }
-
-                        arrayOne = arrayOne.splice(0, remaining)
-                    } else {
-                        arrayOne = arrayOne.splice(0, remaining)
+            if ((ch500 - 10) >= 0 && arrayten.length != 0) {
+                for (i = 0; i < arrayten.length; i++) {
+                    ch500 = ch500 - 10
+                    if ((ch500 - 10) < 0) {
+                        arrayten = arrayten.splice(0, i + 1)
+                        break
                     }
                 }
+            } else {
+                arrayten = []
+            }
 
+            if ((ch500 - 5) >= 0 && arrayfive.length != 0) {
+                for (i = 0; i < arrayfive.length; i++) {
+                    ch500 = ch500 - 5
+                    if ((ch500 - 5) < 0) {
+                        arrayfive = arrayfive.splice(0, i + 1)
+                        break
+                    }
+                }
+            } else {
+                arrayfive = []
+            }
 
-
+            if ((ch500 - 1) >= 0 && arrayOne.length != 0) {
+                for (i = 0; i < arrayOne.length; i++) {
+                    ch500 = ch500 - 1
+                    if ((ch500 - 1) < 0) {
+                        arrayOne = arrayOne.splice(0, i + 1)
+                        break
+                    }
+                }
+            } else {
+                arrayOne = []
             }
 
 

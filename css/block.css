@@ -49,14 +49,14 @@ body {
     background-size: cover;
     position: absolute;
     top: 1.7%;
-    left: 80%;
+    left: 79.345%;
 }
 .change_btn{
     background: url(../img/newtRe.png);
     background-size: cover;
     position: absolute;
     top: 67.5%;
-    left: 81.25%;
+    left: 80.75%;
     cursor: pointer;
 }
 .close_btn{
