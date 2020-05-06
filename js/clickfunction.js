@@ -3,17 +3,17 @@ if (set_pic_info.length > 1) {
     $('.info-btn-right').removeClass('display_none')
 }
 var picnowdisplay = 0
-var picenddisplay = set_pic_info.length -1
+var picenddisplay = set_pic_info.length - 1
 $('.info-btn-right').click(function () {
     picnowdisplay++
     $('.info-page').css({
         background: `url(setpic/${set_pic_info[picnowdisplay]})`,
         backgroundSize: "cover"
     })
-    if(picnowdisplay==picenddisplay){
+    if (picnowdisplay == picenddisplay) {
         $('.info-btn-right').addClass('display_none')
     }
-    if(picnowdisplay!=0){
+    if (picnowdisplay != 0) {
         $('.info-btn-left').removeClass('display_none')
     }
 })
@@ -23,10 +23,10 @@ $('.info-btn-left').click(function () {
         background: `url(setpic/${set_pic_info[picnowdisplay]})`,
         backgroundSize: "cover"
     })
-    if(picnowdisplay==0){
+    if (picnowdisplay == 0) {
         $('.info-btn-left').addClass('display_none')
     }
-    if(picnowdisplay!=picenddisplay){
+    if (picnowdisplay != picenddisplay) {
         $('.info-btn-right').removeClass('display_none')
     }
 
@@ -285,232 +285,242 @@ $('.movedownbtn').click(function () {
 
 
 
-var clickDisplayNoneThd
-var clickDisplayNoneHrd
-var clickDisplayNoneten
-var clickDisplayNoneOne
-var clickDisplayNoneFiftyHrd
-var clickDisplayNonefifty
-var clickDisplayNonefive
+var clickDisplayNoneThd = 0
+var clickDisplayNoneHrd = 0
+var clickDisplayNoneten = 0
+var clickDisplayNoneOne = 0
+var clickDisplayNoneFiftyHrd = 0
+var clickDisplayNonefifty = 0
+var clickDisplayNonefive = 0
 
-$('.arrow1').click(function () {
-    $('.choosenum1').css({
-        transform: "scale(1)"
-
+$('.arrow1').click(function (e) {
+    e.stopPropagation();
+    $('.choosenum').not('.choosenum1').css({
+        transform: "scale(0)"
     })
-    setTimeout(function () {
-        clickDisplayNoneThd = 1
-    }, 100)
+    if (clickDisplayNoneThd == 0) {
+        $('.choosenum1').css({
+            transform: "scale(1)"
+        })
+
+        setTimeout(function () {
+            clickDisplayNoneThd = 1
+        }, 100)
+    } else if (clickDisplayNoneThd == 1) {
+        $('.choosenum1').css({
+            transform: "scale(0)"
+        })
+        clickDisplayNoneThd = 0
+    }
 })
 
-$('.arrow2').click(function () {
-    $('.choosenum2').css({
-        transform: "scale(1)"
-
+$('.arrow2').click(function (e) {
+    e.stopPropagation();
+    $('.choosenum').not('.choosenum2').css({
+        transform: "scale(0)"
     })
-    setTimeout(function () {
-        clickDisplayNoneFiftyHrd = 1
-    }, 100)
-})
-$('.arrow3').click(function () {
-    $('.choosenum3').css({
-        transform: "scale(1)"
+    if (clickDisplayNoneFiftyHrd == 0) {
+        $('.choosenum2').css({
+            transform: "scale(1)"
+        })
 
-    })
-    setTimeout(function () {
-        clickDisplayNoneHrd = 1
-    }, 100)
+        setTimeout(function () {
+            clickDisplayNoneFiftyHrd = 1
+        }, 100)
+    } else if (clickDisplayNoneFiftyHrd == 1) {
+        $('.choosenum2').css({
+            transform: "scale(0)"
+        })
+        clickDisplayNoneFiftyHrd = 0
+    }
 })
-$('.arrow4').click(function () {
-    $('.choosenum4').css({
-        transform: "scale(1)"
 
+$('.arrow3').click(function (e) {
+    e.stopPropagation();
+    $('.choosenum').not('.choosenum3').css({
+        transform: "scale(0)"
     })
-    setTimeout(function () {
-        clickDisplayNonefifty = 1
-    }, 100)
-})
-$('.arrow5').click(function () {
-    $('.choosenum5').css({
-        transform: "scale(1)"
+    if (clickDisplayNoneHrd == 0) {
+        $('.choosenum3').css({
+            transform: "scale(1)"
+        })
 
-    })
-    setTimeout(function () {
-        clickDisplayNoneten = 1
-    }, 100)
+        setTimeout(function () {
+            clickDisplayNoneHrd = 1
+        }, 100)
+    } else if (clickDisplayNoneHrd == 1) {
+        $('.choosenum3').css({
+            transform: "scale(0)"
+        })
+        clickDisplayNoneHrd = 0
+    }
 })
-$('.arrow6').click(function () {
-    $('.choosenum6').css({
-        transform: "scale(1)"
 
-    })
-    setTimeout(function () {
-        clickDisplayNonefive = 1
-    }, 100)
-})
-$('.arrow7').click(function () {
-    $('.choosenum7').css({
-        transform: "scale(1)"
 
+$('.arrow4').click(function (e) {
+    e.stopPropagation();
+    $('.choosenum').not('.choosenum4').css({
+        transform: "scale(0)"
     })
-    setTimeout(function () {
-        clickDisplayNoneOne = 1
-    }, 100)
+    if (clickDisplayNonefifty == 0) {
+        $('.choosenum4').css({
+            transform: "scale(1)"
+        })
+
+        setTimeout(function () {
+            clickDisplayNonefifty = 1
+        }, 100)
+    } else if (clickDisplayNonefifty == 1) {
+        $('.choosenum4').css({
+            transform: "scale(0)"
+        })
+        clickDisplayNonefifty = 0
+    }
 })
+
+
+$('.arrow5').click(function (e) {
+    e.stopPropagation();
+    $('.choosenum').not('.choosenum5').css({
+        transform: "scale(0)"
+    })
+    if (clickDisplayNoneten == 0) {
+        $('.choosenum5').css({
+            transform: "scale(1)"
+        })
+
+        setTimeout(function () {
+            clickDisplayNoneten = 1
+        }, 100)
+    } else if (clickDisplayNoneten == 1) {
+        $('.choosenum5').css({
+            transform: "scale(0)"
+        })
+        clickDisplayNoneten = 0
+    }
+})
+$('.arrow6').click(function (e) {
+    e.stopPropagation();
+    $('.choosenum').not('.choosenum6').css({
+        transform: "scale(0)"
+    })
+    if (clickDisplayNonefive == 0) {
+        $('.choosenum6').css({
+            transform: "scale(1)"
+        })
+
+        setTimeout(function () {
+            clickDisplayNonefive = 1
+        }, 100)
+    } else if (clickDisplayNonefive == 1) {
+        $('.choosenum6').css({
+            transform: "scale(0)"
+        })
+        clickDisplayNonefive = 0
+    }
+})
+$('.arrow7').click(function (e) {
+    e.stopPropagation();
+    $('.choosenum').not('.choosenum7').css({
+        transform: "scale(0)"
+    })
+    if (clickDisplayNoneOne == 0) {
+        $('.choosenum7').css({
+            transform: "scale(1)"
+        })
+
+        setTimeout(function () {
+            clickDisplayNoneOne = 1
+        }, 100)
+    } else if (clickDisplayNoneOne == 1) {
+        $('.choosenum7').css({
+            transform: "scale(0)"
+        })
+        clickDisplayNoneOne = 0
+    }
+})
+
+
 
 $('body').bind('click', function (event) {
     if (clickDisplayNoneThd == 1) {
-        var evt = event.srcElement ? event.srcElement : event.target;
-        var allele = []
 
-        var opop = event.target.classList.length
 
-        for (i = 0; i < opop; i++) {
-            allele.push(event.target.classList[i])
-
-        }
-
-        if (allele[1] == "arrow1") return;
-        else {
-
-            $('.choosenum1').css({
-                transform: "scale(0)"
-            })
-        }
-        clickDisplayNoneThd = 0
+        $('.choosenum1').css({
+            transform: "scale(0)"
+        })
     }
+    clickDisplayNoneThd = 0
 });
 $('body').bind('click', function (event) {
     if (clickDisplayNoneFiftyHrd == 1) {
-        var evt = event.srcElement ? event.srcElement : event.target;
-        var allele = []
 
-        var opop = event.target.classList.length
 
-        for (i = 0; i < opop; i++) {
-            allele.push(event.target.classList[i])
-
-        }
-
-        if (allele[1] == "arrow2") return;
-        else {
-
-            $('.choosenum2').css({
-                transform: "scale(0)"
-            })
-        }
-        clickDisplayNoneFiftyHrd = 0
+        $('.choosenum2').css({
+            transform: "scale(0)"
+        })
     }
+    clickDisplayNoneFiftyHrd = 0
+  
 });
 $('body').bind('click', function (event) {
     if (clickDisplayNoneHrd == 1) {
-        var evt = event.srcElement ? event.srcElement : event.target;
-        var allele = []
 
-        var opop = event.target.classList.length
 
-        for (i = 0; i < opop; i++) {
-            allele.push(event.target.classList[i])
-
-        }
-
-        if (allele[1] == "arrow3") return;
-        else {
-
-            $('.choosenum3').css({
-                transform: "scale(0)"
-            })
-        }
-        clickDisplayNoneHrd = 0
+        $('.choosenum3').css({
+            transform: "scale(0)"
+        })
     }
+    clickDisplayNoneHrd = 0
+   
 });
 $('body').bind('click', function (event) {
-    if (clickDisplayNonefifty == 1) {
-        var evt = event.srcElement ? event.srcElement : event.target;
-        var allele = []
+    if (clickDisplayNonefifty== 1) {
 
-        var opop = event.target.classList.length
 
-        for (i = 0; i < opop; i++) {
-            allele.push(event.target.classList[i])
-
-        }
-
-        if (allele[1] == "arrow4") return;
-        else {
-
-            $('.choosenum4').css({
-                transform: "scale(0)"
-            })
-        }
-        clickDisplayNonefifty = 0
+        $('.choosenum4').css({
+            transform: "scale(0)"
+        })
     }
+    clickDisplayNonefifty= 0
+   
+    
 });
 $('body').bind('click', function (event) {
-    if (clickDisplayNoneten == 1) {
-        var evt = event.srcElement ? event.srcElement : event.target;
-        var allele = []
+    if (clickDisplayNoneten== 1) {
 
-        var opop = event.target.classList.length
 
-        for (i = 0; i < opop; i++) {
-            allele.push(event.target.classList[i])
-
-        }
-
-        if (allele[1] == "arrow5") return;
-        else {
-
-            $('.choosenum5').css({
-                transform: "scale(0)"
-            })
-        }
-        clickDisplayNoneten = 0
+        $('.choosenum5').css({
+            transform: "scale(0)"
+        })
     }
+    clickDisplayNoneten= 0
+   
+  
 });
 $('body').bind('click', function (event) {
-    if (clickDisplayNonefive == 1) {
-        var evt = event.srcElement ? event.srcElement : event.target;
-        var allele = []
+    if (clickDisplayNonefive== 1) {
 
-        var opop = event.target.classList.length
 
-        for (i = 0; i < opop; i++) {
-            allele.push(event.target.classList[i])
-
-        }
-
-        if (allele[1] == "arrow6") return;
-        else {
-
-            $('.choosenum6').css({
-                transform: "scale(0)"
-            })
-        }
-        clickDisplayNonefive = 0
+        $('.choosenum6').css({
+            transform: "scale(0)"
+        })
     }
+    clickDisplayNonefive= 0
+   
+  
 });
 $('body').bind('click', function (event) {
-    if (clickDisplayNoneOne == 1) {
-        var evt = event.srcElement ? event.srcElement : event.target;
-        var allele = []
+    if (clickDisplayNoneOne== 1) {
 
-        var opop = event.target.classList.length
 
-        for (i = 0; i < opop; i++) {
-            allele.push(event.target.classList[i])
-
-        }
-
-        if (allele[1] == "arrow7") return;
-        else {
-
-            $('.choosenum7').css({
-                transform: "scale(0)"
-            })
-        }
-        clickDisplayNoneOne = 0
+        $('.choosenum7').css({
+            transform: "scale(0)"
+        })
     }
+    clickDisplayNoneOne= 0
+   
+   
 });
 var togglecount = 0
 
@@ -638,6 +648,35 @@ $('.useteach').click(function () {
 })
 $('.delete_btn').click(function () {
     if (blurnow == 0) {
+
+        clickappend_1000 = 0
+        clickrow_1000 = 0
+        clicklittlemove_1000 = 0
+
+        clickappend_500 = 0
+        clickrow_500 = 0
+        clicklittlemove_500 = 0
+
+        clickappend_100 = 0
+        clickrow_100 = 0
+        clicklittlemove_100 = 0
+
+        clickappend_50 = 0
+        clickrow_50 = 0
+        clicklittlemove_50 = 0
+
+        clickappend_10 = 0
+        clickrow_10 = 0
+        clicklittlemove_10 = 0
+
+        clickappend_5 = 0
+        clickrow_5 = 0
+        clicklittlemove_5 = 0
+
+        clickappend_1 = 0
+        clickrow_1 = 0
+        clicklittlemove_1 = 0
+
         arrayOne = []
         arrayfive = []
         arrayten = []
@@ -1260,12 +1299,10 @@ canvas.on('object:moving', function (e) {
     obj.setCoords();
 
     // if ((obj.getBoundingRect().left + obj.getBoundingRect().width/2) > obj.canvas.width * 0.80 && obj.getBoundingRect().top + obj.getBoundingRect().height < obj.canvas.height * 0.65) {
-    var clientXnow = e.e.clientX
+    var clientXnow = e.e.clientX || e.e.targetTouches[0].clientX
 
-    if (isAndroid || isiOS) {
-        clientXnow = e.e.targetTouches[0].clientX
-    }
 
+    
 
 
     if (objjj == e.target) {
@@ -7595,37 +7632,61 @@ $('.change_btn').click(function () {
 
 
 
-var clickappend = 0
-var clickrow = 0
-var clicklittlemove = 0
+var clickappend_1000 = 0
+var clickrow_1000 = 0
+var clicklittlemove_1000 = 0
+
+var clickappend_500 = 0
+var clickrow_500 = 0
+var clicklittlemove_500 = 0
+
+var clickappend_100 = 0
+var clickrow_100 = 0
+var clicklittlemove_100 = 0
+
+var clickappend_50 = 0
+var clickrow_50 = 0
+var clicklittlemove_50 = 0
+
+var clickappend_10 = 0
+var clickrow_10 = 0
+var clicklittlemove_10 = 0
+
+var clickappend_5 = 0
+var clickrow_5 = 0
+var clicklittlemove_5 = 0
+
+var clickappend_1 = 0
+var clickrow_1 = 0
+var clicklittlemove_1 = 0
 
 
-$('.dragele').click(function (e) {
+$('.dragele_1000').click(function (e) {
     let movingImage = e.target
     const image_qq = new fabric.Image(movingImage, {
         width: movingImage.naturalWidth,
         height: movingImage.naturalHeight,
         scaleX: movingImage.width / movingImage.naturalWidth,
         scaleY: movingImage.height / movingImage.naturalHeight,
-        top: 40 * sRSS + 110 * clickappend * sRSS,
-        left: 40 * sRSS + clickrow * 130 * sRSS + clicklittlemove * sRSS,
+        top: 40 * sRSS + 110 * clickappend_1000 * sRSS + clicklittlemove_1000 * sRSS,
+        left: 40 * sRSS + clickrow_1000 * 130 * sRSS + clicklittlemove_1000 * sRSS,
         lockScalingFlip: true
     })
     image_qq.alt = 1
     image_qq.set({
         borderColor: '#01B0F1'
     })
-    clickappend++
-    if (clickappend == 5) {
-        clickrow++
-        clickappend = 0
+    clickappend_1000++
+    if (clickappend_1000 == 5) {
+        clickrow_1000++
+        clickappend_1000 = 0
     }
-    if (clickrow == 10) {
-        clickrow = 0
-        clicklittlemove += 10
+    if (clickrow_1000 == 2) {
+        clickrow_1000 = 0
+        clicklittlemove_1000 += 10
     }
-    if (clicklittlemove > 10) {
-        clicklittlemove = 0
+    if (clicklittlemove_1000 > 40) {
+        clicklittlemove_1000 = 0
     }
     image_q.push(image_qq)
 
@@ -7647,3 +7708,287 @@ $('.dragele').click(function (e) {
 
 })
 
+$('.dragele_500').click(function (e) {
+    let movingImage = e.target
+    const image_qq = new fabric.Image(movingImage, {
+        width: movingImage.naturalWidth,
+        height: movingImage.naturalHeight,
+        scaleX: movingImage.width / movingImage.naturalWidth,
+        scaleY: movingImage.height / movingImage.naturalHeight,
+        top: 40 * sRSS + 110 * clickappend_500 * sRSS + clicklittlemove_500 * sRSS,
+        left: 145 * sRSS + clickrow_500 * 130 * sRSS + clicklittlemove_500 * sRSS,
+        lockScalingFlip: true
+    })
+    image_qq.alt = 1
+    image_qq.set({
+        borderColor: '#01B0F1'
+    })
+    clickappend_500++
+    if (clickappend_500 == 5) {
+        clickrow_500++
+        clickappend_500 = 0
+    }
+    if (clickrow_500 == 2) {
+        clickrow_500 = 0
+        clicklittlemove_500 += 10
+    }
+    if (clicklittlemove_500 > 40) {
+        clicklittlemove_500 = 0
+    }
+    image_q.push(image_qq)
+
+    canvas.add(image_qq)
+    movingImage = ""
+    setTimeout(function ww() {
+        var items = canvas.getObjects()
+        var Array_sum
+        var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
+
+        for (i = 0; i < items.length; i++) {
+            ArrTest[i] = parseInt(items[i]._element.alt)
+
+        }
+        Array_sum = SumData(ArrTest)
+        $(".count").val(Array_sum + change_Array_sum)
+
+    }, 500)
+
+})
+
+$('.dragele_100').click(function (e) {
+    let movingImage = e.target
+    const image_qq = new fabric.Image(movingImage, {
+        width: movingImage.naturalWidth,
+        height: movingImage.naturalHeight,
+        scaleX: movingImage.width / movingImage.naturalWidth,
+        scaleY: movingImage.height / movingImage.naturalHeight,
+        top: 40 * sRSS + 110 * clickappend_100 * sRSS + clicklittlemove_100 * sRSS,
+        left: 330 * sRSS + clickrow_100 * 130 * sRSS + clicklittlemove_100 * sRSS,
+        lockScalingFlip: true
+    })
+    image_qq.alt = 1
+    image_qq.set({
+        borderColor: '#01B0F1'
+    })
+    clickappend_100++
+    if (clickappend_100 == 5) {
+        clickrow_100++
+        clickappend_100 = 0
+    }
+    if (clickrow_100 == 2) {
+        clickrow_100 = 0
+        clicklittlemove_100 += 10
+    }
+    if (clicklittlemove_100 > 40) {
+        clicklittlemove_100 = 0
+    }
+    image_q.push(image_qq)
+
+    canvas.add(image_qq)
+    movingImage = ""
+    setTimeout(function ww() {
+        var items = canvas.getObjects()
+        var Array_sum
+        var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
+
+        for (i = 0; i < items.length; i++) {
+            ArrTest[i] = parseInt(items[i]._element.alt)
+
+        }
+        Array_sum = SumData(ArrTest)
+        $(".count").val(Array_sum + change_Array_sum)
+
+    }, 500)
+
+})
+
+$('.dragele_50').click(function (e) {
+    let movingImage = e.target
+    const image_qq = new fabric.Image(movingImage, {
+        width: movingImage.naturalWidth,
+        height: movingImage.naturalHeight,
+        scaleX: movingImage.width / movingImage.naturalWidth,
+        scaleY: movingImage.height / movingImage.naturalHeight,
+        top: 40 * sRSS + 110 * clickappend_50 * sRSS + clicklittlemove_50 * sRSS,
+        left: 530 * sRSS + clickrow_50 * 100 * sRSS + clicklittlemove_50 * sRSS,
+        lockScalingFlip: true
+    })
+    image_qq.alt = 1
+    image_qq.set({
+        borderColor: '#01B0F1'
+    })
+    clickappend_50++
+    if (clickappend_50 == 5) {
+        clickrow_50++
+        clickappend_50 = 0
+    }
+    if (clickrow_50 == 2) {
+        clickrow_50 = 0
+        clicklittlemove_50 += 10
+    }
+    if (clicklittlemove_50 > 40) {
+        clicklittlemove_50 = 0
+    }
+    image_q.push(image_qq)
+
+    canvas.add(image_qq)
+    movingImage = ""
+    setTimeout(function ww() {
+        var items = canvas.getObjects()
+        var Array_sum
+        var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
+
+        for (i = 0; i < items.length; i++) {
+            ArrTest[i] = parseInt(items[i]._element.alt)
+
+        }
+        Array_sum = SumData(ArrTest)
+        $(".count").val(Array_sum + change_Array_sum)
+
+    }, 500)
+
+})
+
+
+$('.dragele_10').click(function (e) {
+    let movingImage = e.target
+    const image_qq = new fabric.Image(movingImage, {
+        width: movingImage.naturalWidth,
+        height: movingImage.naturalHeight,
+        scaleX: movingImage.width / movingImage.naturalWidth,
+        scaleY: movingImage.height / movingImage.naturalHeight,
+        top: 40 * sRSS + 110 * clickappend_10 * sRSS + clicklittlemove_10 * sRSS,
+        left: 700 * sRSS + clickrow_10 * 100 * sRSS + clicklittlemove_10 * sRSS,
+        lockScalingFlip: true
+    })
+    image_qq.alt = 1
+    image_qq.set({
+        borderColor: '#01B0F1'
+    })
+    clickappend_10++
+    if (clickappend_10 == 5) {
+        clickrow_10++
+        clickappend_10 = 0
+    }
+    if (clickrow_10 == 2) {
+        clickrow_10 = 0
+        clicklittlemove_10 += 10
+    }
+    if (clicklittlemove_10 > 40) {
+        clicklittlemove_10 = 0
+    }
+    image_q.push(image_qq)
+
+    canvas.add(image_qq)
+    movingImage = ""
+    setTimeout(function ww() {
+        var items = canvas.getObjects()
+        var Array_sum
+        var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
+
+        for (i = 0; i < items.length; i++) {
+            ArrTest[i] = parseInt(items[i]._element.alt)
+
+        }
+        Array_sum = SumData(ArrTest)
+        $(".count").val(Array_sum + change_Array_sum)
+
+    }, 500)
+
+})
+
+
+$('.dragele_5').click(function (e) {
+    let movingImage = e.target
+    const image_qq = new fabric.Image(movingImage, {
+        width: movingImage.naturalWidth,
+        height: movingImage.naturalHeight,
+        scaleX: movingImage.width / movingImage.naturalWidth,
+        scaleY: movingImage.height / movingImage.naturalHeight,
+        top: 40 * sRSS + 110 * clickappend_5 * sRSS + clicklittlemove_5 * sRSS,
+        left: 880 * sRSS + clickrow_5 * 100 * sRSS + clicklittlemove_5 * sRSS,
+        lockScalingFlip: true
+    })
+    image_qq.alt = 1
+    image_qq.set({
+        borderColor: '#01B0F1'
+    })
+    clickappend_5++
+    if (clickappend_5 == 5) {
+        clickrow_5++
+        clickappend_5 = 0
+    }
+    if (clickrow_5 == 2) {
+        clickrow_5 = 0
+        clicklittlemove_5 += 10
+    }
+    if (clicklittlemove_5 > 40) {
+        clicklittlemove_5 = 0
+    }
+    image_q.push(image_qq)
+
+    canvas.add(image_qq)
+    movingImage = ""
+    setTimeout(function ww() {
+        var items = canvas.getObjects()
+        var Array_sum
+        var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
+
+        for (i = 0; i < items.length; i++) {
+            ArrTest[i] = parseInt(items[i]._element.alt)
+
+        }
+        Array_sum = SumData(ArrTest)
+        $(".count").val(Array_sum + change_Array_sum)
+
+    }, 500)
+
+})
+
+
+$('.dragele_1').click(function (e) {
+    let movingImage = e.target
+    const image_qq = new fabric.Image(movingImage, {
+        width: movingImage.naturalWidth,
+        height: movingImage.naturalHeight,
+        scaleX: movingImage.width / movingImage.naturalWidth,
+        scaleY: movingImage.height / movingImage.naturalHeight,
+        top: 40 * sRSS + 110 * clickappend_1 * sRSS + clicklittlemove_1 * sRSS,
+        left: 1050 * sRSS + clickrow_1 * 100 * sRSS + clicklittlemove_1 * sRSS,
+        lockScalingFlip: true
+    })
+    image_qq.alt = 1
+    image_qq.set({
+        borderColor: '#01B0F1'
+    })
+    clickappend_1++
+    if (clickappend_1 == 5) {
+        clickrow_1++
+        clickappend_1 = 0
+    }
+    if (clickrow_1 == 2) {
+        clickrow_1 = 0
+        clicklittlemove_1 += 10
+    }
+    if (clicklittlemove_1 > 40) {
+        clicklittlemove_1 = 0
+    }
+    image_q.push(image_qq)
+
+    canvas.add(image_qq)
+    movingImage = ""
+    setTimeout(function ww() {
+        var items = canvas.getObjects()
+        var Array_sum
+        var ArrTest = new Array();　// 宣告一個新的陣列為 ArrTest
+
+        for (i = 0; i < items.length; i++) {
+            ArrTest[i] = parseInt(items[i]._element.alt)
+
+        }
+        Array_sum = SumData(ArrTest)
+        $(".count").val(Array_sum + change_Array_sum)
+
+    }, 500)
+
+})
