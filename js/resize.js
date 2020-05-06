@@ -119,7 +119,10 @@ function convertSizeALL(className) {
             backgroundPosition: "0 0px"
         })
     }
+    $('.realpic').css({
+        backgroundPosition: "0 0px"
 
+    })
 
     canvas.setHeight(655 * sRatio);
     canvas.setWidth(1815 * sRatio);
