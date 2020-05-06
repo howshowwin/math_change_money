@@ -1,4 +1,7 @@
-
+$('.info-page').css({
+    background: `url(setpic/${set_pic_info[0]})`,
+    backgroundSize: "cover"
+  })
 if (set_pic_info.length > 1) {
     $('.info-btn-right').removeClass('display_none')
 }
