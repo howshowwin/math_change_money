@@ -609,12 +609,7 @@ $('.count').blur(function (e) {
 $('.useteach').click(function () {
     picnowdisplay = 0
     $('.mask').removeClass("display_none")
-    $('.info-page').css({
-        background: `url(setpic/${set_pic_info[picnowdisplay]})`,
-        backgroundSize: "cover"
-    })
-    $('.info-btn-right').removeClass('display_none')
-    $('.info-btn-left').addClass('display_none')
+
 
 })
 $('.btn_close_inset').click(function () {
